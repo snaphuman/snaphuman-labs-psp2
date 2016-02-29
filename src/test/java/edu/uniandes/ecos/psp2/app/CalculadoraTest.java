@@ -2,7 +2,7 @@ package edu.uniandes.ecos.psp2.app;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by snaphuman on 2/2/16.
@@ -52,13 +52,10 @@ public class CalculadoraTest {
     }
 
     @Test
-    public void verificarLista() {
+    public void deberiaDemostrarInterfaces() {
 
-        double lista[] = new double[2];
-
-        boolean valido = Calculadora.verificarLista(lista);
-
-        assertEquals(true, valido);
+        Calculadora calculadora = new Calculadora();
+        calculadora.calcularPrediccion();
     }
 
 }
