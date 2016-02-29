@@ -8,9 +8,9 @@ package edu.uniandes.ecos.psp2.app;
  * @licence GNU/GPL v3
  */
 
-import java.util.Scanner;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Calculadora {
 
@@ -202,12 +202,11 @@ public class Calculadora {
         return media;
     }
 
-    public static boolean verificarLista(double[] lista) {
+    public void calcularPrediccion () {
 
-        boolean valido;
+        EstimacionTamano probeA = new EstimacionTamano();
 
-        valido = lista.length >= 2 ? true : false;
-
-        return valido;
+        probeA.calcularParametros();
+        probeA.calcularCoeficientes();
     }
 }
