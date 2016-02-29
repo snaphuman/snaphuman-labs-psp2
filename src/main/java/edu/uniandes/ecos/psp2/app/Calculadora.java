@@ -127,22 +127,25 @@ public class Calculadora {
         if (op == 1) {
             System.out.println("Usted ha seleccionado Desviación Estandard \n");
 
-            double resultado = calcularDesviacion(valores);
+            Operacion operacion = new Operacion();
+            double resultado = operacion.calcularDesviacion(valores);;
 
             System.out.println("El resultado del cálculo es: " + resultado);
         }
         else if(op == 2) {
             System.out.println("Usted ha seleccionado Media Aritmética \n");
 
-            double resultado = calcularMediaAritmetica(valores);
+            Operacion operacion = new Operacion();
+            double resultado = operacion.calcularMedia(valores);
 
             System.out.println("El resultado del cálculo es: " + resultado);
         }
         else if (op == 3) {
             System.out.println("Usted ha seleccionado calcular ambas \n");
 
-            double desviación = calcularDesviacion(valores);
-            double media = calcularMediaAritmetica(valores);
+            Operacion operacion = new Operacion();
+            double desviación = operacion.calcularDesviacion(valores);;
+            double media = operacion.calcularMedia(valores);
 
             $msg = "La desviación estandar es: " + desviación + "\n";
             $msg += "La media aritmetica es: " + media;
@@ -158,55 +161,5 @@ public class Calculadora {
         }
 
         in.close();
-    }
-
-    /**
-     * Calcula la desviación estandard de una lista de valores dados.
-     *
-     * @param lista Array de números eneros
-     * @return sigma Double con el resultado del cálculo
-     */
-    public static double calcularDesviacion(double[] lista) {
-
-        double avg = calcularMediaAritmetica(lista);
-        double sum = 0;
-        double sigma;
-
-        for (int i = 0; i < lista.length; i++) {
-
-            sum = sum + Math.pow((lista[i] - avg), 2);
-        }
-
-        sigma = Math.sqrt(sum / (lista.length - 1));
-
-        return sigma;
-    }
-
-    /**
-     * Calcula la media aritmética de una lista de valores dados.
-     *
-     * @param lista Array de números eneros
-     * @return media Double con el resultado del cálculo
-     */
-    public static double calcularMediaAritmetica(double[] lista) {
-
-        double sum = 0;
-        double media = 0;
-
-        for(int i = 0; i<lista.length; i++) {
-            sum = sum + lista[i];
-        }
-
-        media = sum / lista.length;
-
-        return media;
-    }
-
-    public void calcularPrediccion () {
-
-        EstimacionTamano probeA = new EstimacionTamano();
-
-        probeA.calcularParametros();
-        probeA.calcularCoeficientes();
     }
 }

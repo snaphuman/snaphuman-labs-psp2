@@ -3,16 +3,15 @@ package edu.uniandes.ecos.psp2.app;
 /**
  * Created by snaphuman on 2/28/16.
  */
-public class EstimacionTamano implements Regresion, Correlacion {
+public class EstimacionTamano {
 
-    public void calcularParametros() {
+    public void probeA() {
 
-        System.out.println("Calculando Parametros");
-
+        System.out.println("Calculando estimación de tamaño probe A");
     }
 
-    public void calcularCoeficientes() {
+    public void probeB() {
 
-        System.out.println("Calculando Coeficientes");
+        System.out.println("Calculando estimación de tamaño probe B");
     }
 }
