@@ -11,5 +11,5 @@ import java.util.List;
 public class Pares {
 
     public static List<Pair<Double, Double>> listaPares =
-            new ArrayList<Pair<Double, Double>>();
+            new ArrayList<>();
 }

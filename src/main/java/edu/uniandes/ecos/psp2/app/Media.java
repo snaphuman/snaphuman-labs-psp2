@@ -1,9 +1,11 @@
 package edu.uniandes.ecos.psp2.app;
 
+import org.javatuples.Pair;
+
 /**
  * Created by snaphuman on 2/29/16.
  */
 public interface Media {
 
-    double calcularMedia(double[] lista);
+    Pair<Double, Double> calcularMedia(Pares lista);
 }

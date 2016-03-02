@@ -39,17 +39,22 @@ public class Calculadora {
 
         Pares lista = new Pares();
 
-        lista.listaPares.add( new Pair<Double, Double>( 130.0, 186.0 ) );
-        lista.listaPares.add( new Pair<Double, Double>( 650.0, 699.0 ) );
-        lista.listaPares.add( new Pair<Double, Double>( 99.0, 132.0 ) );
-        lista.listaPares.add( new Pair<Double, Double>( 150.0, 272.0 ) );
-        lista.listaPares.add( new Pair<Double, Double>( 128.0, 291.0 ) );
-        lista.listaPares.add( new Pair<Double, Double>( 302.0, 331.0 ) );
-        lista.listaPares.add( new Pair<Double, Double>( 95.0, 199.0 ) );
-        lista.listaPares.add( new Pair<Double, Double>( 945.0, 1890.0 ) );
-        lista.listaPares.add( new Pair<Double, Double>( 368.0, 788.0 ) );
+        lista.listaPares.add(new Pair<>(130.0, 186.0) );
+        lista.listaPares.add( new Pair<>( 650.0, 699.0 ) );
+        lista.listaPares.add( new Pair<>( 99.0, 132.0 ) );
+        lista.listaPares.add( new Pair<>( 150.0, 272.0 ) );
+        lista.listaPares.add( new Pair<>( 128.0, 291.0 ) );
+        lista.listaPares.add( new Pair<>( 302.0, 331.0 ) );
+        lista.listaPares.add( new Pair<>( 95.0, 199.0 ) );
+        lista.listaPares.add( new Pair<>( 945.0, 1890.0 ) );
+        lista.listaPares.add( new Pair<>( 368.0, 788.0 ) );
 
-        Estimacion.probe( lista );
+        Correlacion correlacion = new Estadistica();
+        Regresion regresion = new Estadistica();
+
+        regresion.calcularParametros(lista);
+        correlacion.calcularCoeficientes(lista);
+        Estadistica.coeficientesCorrelacion.getClass();
     }
 
     public static void test2 () {
