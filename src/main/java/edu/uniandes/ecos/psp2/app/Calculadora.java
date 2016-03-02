@@ -8,9 +8,9 @@ package edu.uniandes.ecos.psp2.app;
  * @licence GNU/GPL v3
  */
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import org.javatuples.Pair;
+
+import java.util.*;
 
 public class Calculadora {
 
@@ -162,4 +162,22 @@ public class Calculadora {
 
         in.close();
     }
+
+    public static void test1 () {
+
+        Pares lista = new Pares();
+
+        lista.listaPares.add(new Pair<Double, Double>(130.0, 186.0));
+        lista.listaPares.add(new Pair<Double, Double>(650.0, 699.0));
+        lista.listaPares.add(new Pair<Double, Double>(99.0, 132.0));
+        lista.listaPares.add(new Pair<Double, Double>(150.0, 272.0));
+        lista.listaPares.add(new Pair<Double, Double>(128.0, 291.0));
+        lista.listaPares.add(new Pair<Double, Double>(302.0, 331.0));
+        lista.listaPares.add(new Pair<Double, Double>(95.0, 199.0));
+        lista.listaPares.add(new Pair<Double, Double>(945.0, 1890.0));
+        lista.listaPares.add(new Pair<Double, Double>(368.0, 788.0));
+
+        EstimacionTamano.probeA(lista);
+    }
+
 }

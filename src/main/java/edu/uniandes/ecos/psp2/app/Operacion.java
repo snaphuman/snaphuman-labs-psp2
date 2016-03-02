@@ -5,14 +5,18 @@ package edu.uniandes.ecos.psp2.app;
  */
 public class Operacion implements Regresion, Correlacion, Desviacion, Media{
 
-    public void calcularCoeficientes() {
+    public Pares calcularCoeficientes(Pares lista) {
 
         System.out.println("Calculando Coeficientes");
+
+        return lista;
     }
 
-    public void calcularParametros() {
+    public Pares calcularParametros(Pares lista) {
 
         System.out.println("Calculando Parametros");
+
+        return lista;
     }
 
     /**

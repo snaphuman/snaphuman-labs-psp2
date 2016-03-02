@@ -5,5 +5,5 @@ package edu.uniandes.ecos.psp2.app;
  */
 public interface Regresion {
 
-    void calcularParametros();
+    Pares calcularParametros(Pares lista);
 }

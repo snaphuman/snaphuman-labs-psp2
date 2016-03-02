@@ -10,27 +10,20 @@ public class CalculadoraTest {
     @Test
     public void deberiaDemostrarInterfaces() {
 
-        double lista[] = new double[10];
-
-        lista[0] = 160;
-        lista[1] = 591;
-        lista[2] = 114;
-        lista[3] = 229;
-        lista[4] = 230;
-        lista[5] = 270;
-        lista[6] = 128;
-        lista[7] = 1657;
-        lista[8] = 624;
-        lista[9] = 1503;
+        Pares pares = new Pares();
+        double[] lista = new double[0];
 
         Correlacion correlacion = new Operacion();
-        correlacion.calcularCoeficientes();
+        correlacion.calcularCoeficientes( pares );
+
+        Regresion regresion = new Operacion();
+        regresion.calcularParametros( pares );
 
         Desviacion desviacion = new Operacion();
         desviacion.calcularDesviacion(lista);
 
-        Regresion regresion = new Operacion();
-        regresion.calcularParametros();
+        Media media = new Operacion();
+        media.calcularMedia(lista);
     }
 
 }

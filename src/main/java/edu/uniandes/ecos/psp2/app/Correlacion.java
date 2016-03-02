@@ -5,5 +5,5 @@ package edu.uniandes.ecos.psp2.app;
  */
 public interface Correlacion {
 
-    void  calcularCoeficientes();
+     Pares calcularCoeficientes(Pares lista);
 }
