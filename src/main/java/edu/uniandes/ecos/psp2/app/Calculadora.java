@@ -9,8 +9,8 @@ package edu.uniandes.ecos.psp2.app;
  */
 
 import org.javatuples.Pair;
-
 import java.util.*;
+import static spark.Spark.*;
 
 public class Calculadora {
 
