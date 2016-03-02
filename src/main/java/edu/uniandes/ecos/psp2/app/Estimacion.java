@@ -7,7 +7,7 @@ import org.javatuples.Pair;
  */
 public class Estimacion {
 
-    public static Pares probeA(Pares lista) {
+    public static Pares probe(Pares lista) {
 
         System.out.println("Calculando estimación de tamaño probe A");
         Pares coeficientesCorrelacion = new Pares();
@@ -30,10 +30,5 @@ public class Estimacion {
         }
 
         return lista;
-    }
-
-    public void probeB() {
-
-        System.out.println("Calculando estimación de tamaño probe B");
     }
 }

@@ -9,9 +9,8 @@ public class Operacion implements Regresion, Correlacion, Desviacion, Media{
 
     public Pair<Double, Double> calcularCoeficientes(Double x, Double y) {
 
-        Pair<Double, Double> resultado = Pair.with(0.0,0.0);
-
         System.out.println("Calculando Coeficientes");
+        Pair<Double, Double> resultado = Pair.with(0.0,0.0);
 
         return resultado;
     }
