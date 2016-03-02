@@ -10,20 +10,18 @@ public class EstimacionTamano {
     public static Pares probeA(Pares lista) {
 
         System.out.println("Calculando estimación de tamaño probe A");
-
-        for ( Pair item : lista.listaPares) {
-
-            item.getValue(0);
-            item.getValue(1);
-        }
+        Pares coeficientesCorrelacion = new Pares();
 
         Correlacion correlacion = new Operacion();
 
-        correlacion.calcularCoeficientes(lista);
+        for ( Pair item : lista.listaPares) {
 
-        Regresion regresion = new Operacion();
+            Pair<Double, Double> rCorrelacion = correlacion.calcularCoeficientes((
+                    Double) item.getValue(0), (Double) item.getValue(1));
 
-        regresion.calcularParametros(lista);
+            coeficientesCorrelacion.listaPares.add(rCorrelacion);
+
+        }
 
         return lista;
     }

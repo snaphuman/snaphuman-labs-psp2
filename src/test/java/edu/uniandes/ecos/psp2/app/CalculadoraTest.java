@@ -10,14 +10,15 @@ public class CalculadoraTest {
     @Test
     public void deberiaDemostrarInterfaces() {
 
-        Pares pares = new Pares();
+        Double x = 0.0;
+        Double y = 0.0;
         double[] lista = new double[0];
 
         Correlacion correlacion = new Operacion();
-        correlacion.calcularCoeficientes( pares );
+        correlacion.calcularCoeficientes( x , y );
 
         Regresion regresion = new Operacion();
-        regresion.calcularParametros( pares );
+        regresion.calcularParametros( x , y );
 
         Desviacion desviacion = new Operacion();
         desviacion.calcularDesviacion(lista);

@@ -1,22 +1,26 @@
 package edu.uniandes.ecos.psp2.app;
 
+import org.javatuples.Pair;
+
 /**
  * Created by snaphuman on 2/29/16.
  */
 public class Operacion implements Regresion, Correlacion, Desviacion, Media{
 
-    public Pares calcularCoeficientes(Pares lista) {
+    public Pair<Double, Double> calcularCoeficientes(Double x, Double y) {
+
+        Pair<Double, Double> resultado = Pair.with(0.0,0.0);
 
         System.out.println("Calculando Coeficientes");
 
-        return lista;
+        return resultado;
     }
 
-    public Pares calcularParametros(Pares lista) {
+    public Pair<Double,Double> calcularParametros(Double x, Double y) {
 
         System.out.println("Calculando Parametros");
 
-        return lista;
+        return null;
     }
 
     /**
