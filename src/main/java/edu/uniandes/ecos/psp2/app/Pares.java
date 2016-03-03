@@ -12,4 +12,13 @@ public class Pares {
 
     public static List<Pair<Double, Double>> listaPares =
             new ArrayList<>();
+
+    public static List<Pair<Double, Double>> listaParesMedia =
+            new ArrayList<>();
+
+    public static List<Pair<Double, Double>> resultadosCoeficientes =
+            new ArrayList<>();
+
+    public static List<Pair<Double, Double>> resultadosParametros =
+            new ArrayList<>();
 }

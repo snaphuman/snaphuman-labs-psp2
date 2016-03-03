@@ -3,7 +3,7 @@ package edu.uniandes.ecos.psp2.app;
 /**
  * Created by snaphuman on 2/28/16.
  */
-public interface Regresion {
+public interface Operacion {
 
-    void calcularParametros(Pares lista);
+    void calcular(Pares lista);
 }

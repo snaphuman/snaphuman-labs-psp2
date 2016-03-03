@@ -2,13 +2,13 @@ doctype html
 html
   head
     title #{titulo}
+    link(rel="stylesheet", type="text/css", href="/css/pure-min.css")
+    link(rel="stylesheet", type="text/css", href="/css/main.css")
   body
     h1 Bienvenidos a #{titulo}
     h2 Seleccione la operación que desea realizar
     ul
       li
-        a(href="/desviacion") Calcular la desviación estandard
-      li
         a(href="/promedio") Calcular el promedio
       li
-        a(href="/regresion-lineal") Calcular la regresión lineal
+        a(href="/regresion-correlacion") Calcular la regresión lineal y correlacion

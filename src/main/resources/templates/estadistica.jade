@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    link(rel="stylesheet", type="text/css", href="/css/pure-min.css")
+    link(rel="stylesheet", type="text/css", href="/css/main.css")
+  body
+    h1 Regresion y correlación
+
+    .pure-g
+      .pure-u-1-2
+        .pure-u-1-2 B<sub>0</sub>
+        .pure-u-1-2 B<sub>1</sub>
+        each row, i in Px
+          each item, j in row
+            .pure-u-1-2 #{item}
+      .pure-u-1-2
+        .pure-u-1-2 r<sub>x,y</sub>
+        .pure-u-1-2 r<sup>2</sup>
+        each row, i in Cx
+          each item, j in row
+            .pure-u-1-2 #{item}
+      .pure-u-4-24 y<sub>x</sub>
+        each item, j in pEst
+          .pure-u-1 #{item}

@@ -12,10 +12,13 @@ import org.javatuples.Pair;
 import spark.ModelAndView;
 import spark.template.jade.JadeTemplateEngine;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.Spark.staticFileLocation;
 
 public class Calculadora {
 
@@ -27,39 +30,52 @@ public class Calculadora {
      * @return No hay valor de retorno
      */
     public static void main(String[] args) {
+        staticFileLocation("/public");
+
+        test1();
+        test2();
+        test3();
+        test4();
 
         Map<String, String> map = new HashMap<>();
+        Map<String, List> resultados = new HashMap<>();
 
         map.put("titulo", "Calculadora estadística");
 
+        resultados.put("Cx", Pares.resultadosCoeficientes);
+        resultados.put("Px", Pares.resultadosParametros);
+        resultados.put("pEst", proxyEstimado());
+
         get("/", (req, res) -> new ModelAndView(map, "index"), new JadeTemplateEngine());
+        get("/regresion-correlacion", (req, res) ->  new ModelAndView(resultados, "estadistica"), new JadeTemplateEngine());
     }
 
     public static void test1 () {
 
         Pares lista = new Pares();
 
-        lista.listaPares.add(new Pair<>(130.0, 186.0) );
-        lista.listaPares.add( new Pair<>( 650.0, 699.0 ) );
-        lista.listaPares.add( new Pair<>( 99.0, 132.0 ) );
-        lista.listaPares.add( new Pair<>( 150.0, 272.0 ) );
-        lista.listaPares.add( new Pair<>( 128.0, 291.0 ) );
-        lista.listaPares.add( new Pair<>( 302.0, 331.0 ) );
-        lista.listaPares.add( new Pair<>( 95.0, 199.0 ) );
-        lista.listaPares.add( new Pair<>( 945.0, 1890.0 ) );
-        lista.listaPares.add( new Pair<>( 368.0, 788.0 ) );
+        lista.listaPares.clear();
 
-        Correlacion correlacion = new Estadistica();
-        Regresion regresion = new Estadistica();
+        lista.listaPares.add( Pair.with(130.0, 186.0) );
+        lista.listaPares.add( Pair.with( 650.0, 699.0 ) );
+        lista.listaPares.add( Pair.with( 99.0, 132.0 ) );
+        lista.listaPares.add( Pair.with( 150.0, 272.0 ) );
+        lista.listaPares.add( Pair.with( 128.0, 291.0 ) );
+        lista.listaPares.add( Pair.with( 302.0, 331.0 ) );
+        lista.listaPares.add( Pair.with( 95.0, 199.0 ) );
+        lista.listaPares.add( Pair.with( 945.0, 1890.0 ) );
+        lista.listaPares.add( Pair.with( 368.0, 788.0 ) );
+        lista.listaPares.add( Pair.with( 961.0, 1601.0 ) );
 
-        regresion.calcularParametros(lista);
-        correlacion.calcularCoeficientes(lista);
-        Estadistica.coeficientesCorrelacion.getClass();
+        Operacion operacion = new Estadistica();
+        operacion.calcular(lista);
     }
 
     public static void test2 () {
 
         Pares lista = new Pares();
+
+        lista.listaPares.clear();
 
         lista.listaPares.add( Pair.with( 130.0, 15.0 ) );
         lista.listaPares.add( Pair.with( 650.0, 69.9 ) );
@@ -70,13 +86,17 @@ public class Calculadora {
         lista.listaPares.add( Pair.with( 95.0, 19.4 ) );
         lista.listaPares.add( Pair.with( 945.0, 198.7 ) );
         lista.listaPares.add( Pair.with( 368.0, 38.8 ) );
+        lista.listaPares.add( Pair.with( 961.0, 138.2 ) );
 
-        Estimacion.probe( lista );
+        Operacion operacion = new Estadistica();
+        operacion.calcular(lista);
     }
 
     public static void test3 () {
 
         Pares lista = new Pares ();
+
+        lista.listaPares.clear();
 
         lista.listaPares.add( Pair.with( 163.0, 186.0 ) );
         lista.listaPares.add( Pair.with( 765.0, 699.0 ) );
@@ -87,13 +107,17 @@ public class Calculadora {
         lista.listaPares.add( Pair.with( 136.0, 199.0 ) );
         lista.listaPares.add( Pair.with( 1206.0, 189.0 ) );
         lista.listaPares.add( Pair.with( 433.0, 788.0 ) );
+        lista.listaPares.add( Pair.with( 1130.0, 1601.0 ) );
 
-        Estimacion.probe( lista );
+        Operacion operacion = new Estadistica();
+        operacion.calcular(lista);
     }
 
     public static void test4 () {
 
         Pares lista = new Pares ();
+
+        lista.listaPares.clear();
 
         lista.listaPares.add( Pair.with( 163.0, 15.0 ) );
         lista.listaPares.add( Pair.with( 765.0, 69.9 ) );
@@ -104,8 +128,23 @@ public class Calculadora {
         lista.listaPares.add( Pair.with( 136.0, 19.4 ) );
         lista.listaPares.add( Pair.with( 1206.0, 198.7 ) );
         lista.listaPares.add( Pair.with( 433.0, 38.8 ) );
+        lista.listaPares.add( Pair.with( 1130.0, 138.2 ) );
 
-        Estimacion.probe( lista );
+        Operacion operacion = new Estadistica();
+        operacion.calcular(lista);
+    }
+
+    public static List<Double> proxyEstimado () {
+
+        List<Double> pEstimado = new ArrayList<>();
+
+        for (Pair<Double, Double> item : Pares.resultadosParametros) {
+
+            Double yk = item.getValue0() + (item.getValue1()*386);
+            pEstimado.add(yk);
+        }
+
+        return pEstimado;
     }
 
 }

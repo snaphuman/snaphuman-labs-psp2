@@ -1,5 +1,6 @@
 package edu.uniandes.ecos.psp2.app;
 
+import org.javatuples.Pair;
 import org.junit.Test;
 
 /**
@@ -10,20 +11,15 @@ public class CalculadoraTest {
     @Test
     public void deberiaDemostrarInterfaces() {
 
-        Double x = 0.0;
-        Double y = 0.0;
-        double[] lista = new double[0];
+        Pares lista = new Pares();
 
-        Correlacion correlacion = new Operacion();
-        correlacion.calcularCoeficientes( x , y );
+        lista.listaPares.add(Pair.with(1.0,1.0));
+        lista.listaPares.add(Pair.with(1.0,1.0));
 
-        Regresion regresion = new Operacion();
-        regresion.calcularParametros( x , y );
+        Operacion operacion = new Estadistica();
+        operacion.calcular(lista);
 
-        Desviacion desviacion = new Operacion();
-        desviacion.calcularDesviacion(lista);
-
-        Media media = new Operacion();
+        Media media = new Estadistica();
         media.calcularMedia(lista);
     }
 
