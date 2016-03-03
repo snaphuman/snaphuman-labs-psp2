@@ -6,23 +6,6 @@
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <build>
-    <outputDirectory>/home/snaphuman/apps.dev/java-apps/psp2/calculadora-estadistica/target/classes</outputDirectory>
-    <testOutputDirectory>/home/snaphuman/apps.dev/java-apps/psp2/calculadora-estadistica/target/test-classes</testOutputDirectory>
-
-    <resources>
-      <resource>
-        <directory>/home/snaphuman/apps.dev/java-apps/psp2/calculadora-estadistica/src/main/resources</directory>
-      </resource>
-    </resources>
-
-    <testResources>
-      <testResource>
-        <directory>/home/snaphuman/apps.dev/java-apps/psp2/calculadora-estadistica/src/test/resources</directory>
-      </testResource>
-    </testResources>
-
-    <directory>/home/snaphuman/apps.dev/java-apps/psp2/calculadora-estadistica/target</directory>
-    <finalName>calculadora-estadistica-1.0-SNAPSHOT</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
