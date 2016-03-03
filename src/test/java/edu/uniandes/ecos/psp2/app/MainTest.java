@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * Created by snaphuman on 2/2/16.
  */
-public class CalculadoraTest {
+public class MainTest {
 
     @Test
     public void deberiaDemostrarInterfaces() {

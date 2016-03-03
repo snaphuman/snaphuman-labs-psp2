@@ -20,7 +20,7 @@ import java.util.Map;
 import static spark.Spark.get;
 import static spark.Spark.staticFileLocation;
 
-public class Calculadora {
+public class Main {
 
     /**
      * Recibe los datos ingresados por el usuario a través de la
