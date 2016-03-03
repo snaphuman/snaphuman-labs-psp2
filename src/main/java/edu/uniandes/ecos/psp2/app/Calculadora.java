@@ -26,6 +26,7 @@ public class Calculadora {
      * Recibe los datos ingresados por el usuario a través de la
      * linea de comandos
      *
+     * @type Item
      * @param args
      * @return No hay valor de retorno
      */
@@ -53,6 +54,11 @@ public class Calculadora {
                 new ModelAndView( resultados, "estadistica" ), new JadeTemplateEngine());
     }
 
+    /**
+     * Created by snaphuman
+     *
+     * @type Item
+     */
     public static void test1 () {
 
         Pares lista = new Pares();
@@ -74,6 +80,11 @@ public class Calculadora {
         operacion.calcular( lista );
     }
 
+    /**
+     * Created by snaphuman
+     *
+     * @type Item
+     */
     public static void test2 () {
 
         Pares lista = new Pares();
@@ -95,6 +106,11 @@ public class Calculadora {
         operacion.calcular( lista );
     }
 
+    /**
+     * Created by snaphuman
+     *
+     * @type Item
+     */
     public static void test3 () {
 
         Pares lista = new Pares ();
@@ -116,6 +132,11 @@ public class Calculadora {
         operacion.calcular( lista );
     }
 
+    /**
+     * Created by snaphuman
+     *
+     * @type Item
+     */
     public static void test4 () {
 
         Pares lista = new Pares ();
@@ -137,6 +158,11 @@ public class Calculadora {
         operacion.calcular( lista );
     }
 
+    /**
+     * Created by snaphuman
+     *
+     * @type Item
+     */
     public static List<Double> proxyEstimado () {
 
         List<Double> pEstimado = new ArrayList<>();

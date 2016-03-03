@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * Created by snaphuman on 2/29/16.
+ *
+ * @type Item
  */
 public class Pares {
 

@@ -11,6 +11,11 @@ import java.util.List;
  */
 public class Estadistica implements Operacion, Media {
 
+    /**
+     * Created by snaphuman on 2/29/16.
+     *
+     * @type Item
+     */
     public void calcular( Pares lista ) {
 
         Double x;
@@ -71,8 +76,9 @@ public class Estadistica implements Operacion, Media {
     /**
      * Calcula la media aritmética de una lista de valores dados.
      *
-     * @param lista Array de números eneros
-     * @return media Double con el resultado del cálculo
+     * @type Item
+     * @param lista Pares de números double
+     * @return Pair con el resultado del cálculo para cada elemento
      */
     public Pair<Double, Double> calcularMedia( Pares lista ) {
 
