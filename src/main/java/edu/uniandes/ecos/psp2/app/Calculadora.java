@@ -29,8 +29,9 @@ public class Calculadora {
      * @param args
      * @return No hay valor de retorno
      */
-    public static void main(String[] args) {
-        staticFileLocation("/public");
+    public static void main( String[] args ) {
+
+        staticFileLocation( "/public" );
 
         test1();
         test2();
@@ -40,14 +41,16 @@ public class Calculadora {
         Map<String, String> map = new HashMap<>();
         Map<String, List> resultados = new HashMap<>();
 
-        map.put("titulo", "Calculadora estadística");
+        map.put( "titulo", "Calculadora estadística" );
 
-        resultados.put("Cx", Pares.resultadosCoeficientes);
-        resultados.put("Px", Pares.resultadosParametros);
-        resultados.put("pEst", proxyEstimado());
+        resultados.put( "Cx", Pares.resultadosCoeficientes );
+        resultados.put( "Px", Pares.resultadosParametros );
+        resultados.put( "pEst", proxyEstimado() );
 
-        get("/", (req, res) -> new ModelAndView(map, "index"), new JadeTemplateEngine());
-        get("/regresion-correlacion", (req, res) ->  new ModelAndView(resultados, "estadistica"), new JadeTemplateEngine());
+        get( "/", ( req, res ) -> new ModelAndView( map, "index" ), new JadeTemplateEngine());
+        get( "/promedio", ( req, res ) -> new ModelAndView( map, "promedio" ), new JadeTemplateEngine());
+        get( "/regresion-correlacion", ( req, res ) ->
+                new ModelAndView( resultados, "estadistica" ), new JadeTemplateEngine());
     }
 
     public static void test1 () {
@@ -56,7 +59,7 @@ public class Calculadora {
 
         lista.listaPares.clear();
 
-        lista.listaPares.add( Pair.with(130.0, 186.0) );
+        lista.listaPares.add( Pair.with( 130.0, 186.0 ) );
         lista.listaPares.add( Pair.with( 650.0, 699.0 ) );
         lista.listaPares.add( Pair.with( 99.0, 132.0 ) );
         lista.listaPares.add( Pair.with( 150.0, 272.0 ) );
@@ -68,7 +71,7 @@ public class Calculadora {
         lista.listaPares.add( Pair.with( 961.0, 1601.0 ) );
 
         Operacion operacion = new Estadistica();
-        operacion.calcular(lista);
+        operacion.calcular( lista );
     }
 
     public static void test2 () {
@@ -89,7 +92,7 @@ public class Calculadora {
         lista.listaPares.add( Pair.with( 961.0, 138.2 ) );
 
         Operacion operacion = new Estadistica();
-        operacion.calcular(lista);
+        operacion.calcular( lista );
     }
 
     public static void test3 () {
@@ -110,7 +113,7 @@ public class Calculadora {
         lista.listaPares.add( Pair.with( 1130.0, 1601.0 ) );
 
         Operacion operacion = new Estadistica();
-        operacion.calcular(lista);
+        operacion.calcular( lista );
     }
 
     public static void test4 () {
@@ -131,20 +134,19 @@ public class Calculadora {
         lista.listaPares.add( Pair.with( 1130.0, 138.2 ) );
 
         Operacion operacion = new Estadistica();
-        operacion.calcular(lista);
+        operacion.calcular( lista );
     }
 
     public static List<Double> proxyEstimado () {
 
         List<Double> pEstimado = new ArrayList<>();
 
-        for (Pair<Double, Double> item : Pares.resultadosParametros) {
+        for ( Pair<Double, Double> item : Pares.resultadosParametros ) {
 
-            Double yk = item.getValue0() + (item.getValue1()*386);
-            pEstimado.add(yk);
+            Double yk = item.getValue0() + ( item.getValue1() * 386 );
+            pEstimado.add( yk );
         }
 
         return pEstimado;
     }
-
 }

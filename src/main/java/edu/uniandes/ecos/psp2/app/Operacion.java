@@ -5,5 +5,5 @@ package edu.uniandes.ecos.psp2.app;
  */
 public interface Operacion {
 
-    void calcular(Pares lista);
+    void calcular( Pares lista );
 }

@@ -9,9 +9,9 @@ import java.util.List;
 /**
  * Created by snaphuman on 2/29/16.
  */
-public class Estadistica implements Operacion, Media{
+public class Estadistica implements Operacion, Media {
 
-    public void calcular(Pares lista) {
+    public void calcular( Pares lista ) {
 
         Double x;
         Double y;
@@ -23,12 +23,12 @@ public class Estadistica implements Operacion, Media{
         Double xySum = 0.0;
         Double x2Sum = 0.0;
         Double y2Sum = 0.0;
-        Double xAvg = 0.0;
-        Double yAvg = 0.0;
+        Double xAvg;
+        Double yAvg;
 
-        Integer n = new Integer(lista.listaPares.size());
+        Integer n = new Integer( lista.listaPares.size() );
 
-        System.out.println("Calculando Coeficientes");
+        System.out.println( "Calculando Coeficientes" );
 
         List<Triplet<Double, Double, Double>> tabla = new ArrayList<>();
 
@@ -37,11 +37,11 @@ public class Estadistica implements Operacion, Media{
             x = item.getValue0();
             y = item.getValue1();
 
-            x2 = Math.pow(x,2);
+            x2 = Math.pow( x, 2 );
             xy = x * y;
-            y2 = Math.pow(y,2);
+            y2 = Math.pow( y, 2 );
 
-            tabla.add(Triplet.with(x2, xy, y2));
+            tabla.add( Triplet.with( x2, xy, y2 ) );
 
             xSum = xSum + x;
             ySum = ySum + y;
@@ -54,17 +54,15 @@ public class Estadistica implements Operacion, Media{
         xAvg = this.calcularMedia( lista ).getValue0();
         yAvg = this.calcularMedia( lista ).getValue1();
 
-        Double parametroB1 = (xySum - ( n * xAvg * yAvg )) /
-                (x2Sum - ( n * Math.pow( xAvg, 2 ) ));
+        Double parametroB1 = ( xySum - ( n * xAvg * yAvg ) ) /
+                ( x2Sum - ( n * Math.pow( xAvg, 2 ) ) );
 
         Double parametroB0 = yAvg - ( parametroB1 * xAvg );
 
-        Double correlacionR1 = (( n * xySum  ) - ( xSum * ySum )) /
-                (Math.sqrt((n * x2Sum - Math.pow(xSum,2)) *  (n* y2Sum - Math.pow(ySum,2))));
+        Double correlacionR1 = ( ( n * xySum  ) - ( xSum * ySum ) ) /
+                ( Math.sqrt( ( n * x2Sum - Math.pow( xSum,2 ) ) *  ( n* y2Sum - Math.pow( ySum,2 ) ) ) );
 
         Double correlacionR2 = Math.pow( correlacionR1, 2 );
-
-        Double yk = parametroB0 + parametroB1*386;
 
         Pares.resultadosCoeficientes.add( Pair.with( correlacionR2, correlacionR1 ) );
         Pares.resultadosParametros.add( Pair.with( parametroB0, parametroB1 ) );
@@ -76,9 +74,9 @@ public class Estadistica implements Operacion, Media{
      * @param lista Array de números eneros
      * @return media Double con el resultado del cálculo
      */
-    public Pair<Double, Double> calcularMedia(Pares lista) {
+    public Pair<Double, Double> calcularMedia( Pares lista ) {
 
-        System.out.println("Calculando Media");
+        System.out.println( "Calculando Media" );
 
         double sumX = 0;
         double sumY = 0;
