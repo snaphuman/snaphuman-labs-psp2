@@ -56,8 +56,8 @@ public class Estadistica implements Operacion, Media {
 
         }
 
-        xAvg = this.calcularMedia( lista ).getValue0();
-        yAvg = this.calcularMedia( lista ).getValue1();
+        xAvg = this.calcularMediaPares( lista ).getValue0();
+        yAvg = this.calcularMediaPares( lista ).getValue1();
 
         Double parametroB1 = ( xySum - ( n * xAvg * yAvg ) ) /
                 ( x2Sum - ( n * Math.pow( xAvg, 2 ) ) );
@@ -80,7 +80,7 @@ public class Estadistica implements Operacion, Media {
      * @param lista Pares de números double
      * @return Pair con el resultado del cálculo para cada elemento
      */
-    public Pair<Double, Double> calcularMedia( Pares lista ) {
+    public Pair<Double, Double> calcularMediaPares( Pares lista ) {
 
         System.out.println( "Calculando Media" );
 
@@ -98,4 +98,31 @@ public class Estadistica implements Operacion, Media {
 
         return Pair.with(mediaX, mediaY);
     }
+
+    public Double calcularMediaLista( List<Double> lista ) {
+
+        System.out.println( "Calculando Media" );
+
+        double sumX = 0;
+
+        for( Double item : lista) {
+
+            sumX = sumX + item;
+        }
+
+        Double mediaX = sumX / lista.size();
+
+        return mediaX;
+    }
+
+    public Double calcularVarianza ( List<Double> lista, Double media) {
+
+        return null;
+    }
+
+    public Double calcularDesviacionEstandard (Double varianza) {
+
+        return null;
+    }
+
 }

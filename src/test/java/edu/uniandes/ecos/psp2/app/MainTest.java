@@ -20,6 +20,6 @@ public class MainTest {
         operacion.calcular( lista );
 
         Media media = new Estadistica();
-        media.calcularMedia( lista );
+        media.calcularMediaPares( lista );
     }
 }

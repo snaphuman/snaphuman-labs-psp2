@@ -21,7 +21,7 @@ public class EstadisticaTest {
         lista.listaParesMedia.add( Pair.with( 1.0,1.0 ) );
         lista.listaParesMedia.add( Pair.with(1.0,1.0 ) );
 
-        Pair<Double, Double> result = operacion.calcularMedia( lista );
+        Pair<Double, Double> result = operacion.calcularMediaPares( lista );
         assertEquals( 1.0, result.getValue1(), precision );
     }
 }

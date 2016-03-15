@@ -23,4 +23,5 @@ public class Pares {
 
     public static List<Pair<Double, Double>> resultadosParametros =
             new ArrayList<>();
+
 }

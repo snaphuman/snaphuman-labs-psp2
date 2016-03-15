@@ -40,6 +40,7 @@ public class Main {
         test2();
         test3();
         test4();
+        test5();
 
         Map<String, String> map = new HashMap<>();
         Map<String, List> resultados = new HashMap<>();
@@ -158,6 +159,28 @@ public class Main {
 
         Operacion operacion = new Estadistica();
         operacion.calcular( lista );
+    }
+
+    public static void test5() {
+
+        Lista lista = new Lista ();
+
+        lista.datos.add( Pair.with( 18, 3 ) );
+        lista.datos.add( Pair.with( 18, 3 ) );
+        lista.datos.add( Pair.with( 25, 3 ) );
+        lista.datos.add( Pair.with( 31, 3 ) );
+        lista.datos.add( Pair.with( 37, 3 ) );
+        lista.datos.add( Pair.with( 82, 5 ) );
+        lista.datos.add( Pair.with( 82, 4 ) );
+        lista.datos.add( Pair.with( 87, 4 ) );
+        lista.datos.add( Pair.with( 89, 4 ) );
+        lista.datos.add( Pair.with( 230, 10 ) );
+        lista.datos.add( Pair.with( 85, 3 ) );
+        lista.datos.add( Pair.with( 87, 3 ) );
+        lista.datos.add( Pair.with( 558, 10 ) );
+
+        PROBE estimacion = new PROBE();
+        estimacion.calcularTamanoRelativo( lista );
     }
 
     /**
