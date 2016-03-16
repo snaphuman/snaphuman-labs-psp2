@@ -43,18 +43,27 @@ public class Main {
         test5();
 
         Map<String, String> map = new HashMap<>();
-        Map<String, List> resultados = new HashMap<>();
+        Map<String, List> resultadosTaller3 = new HashMap<>();
+        Map<String, List> resultadosTaller4 = new HashMap<>();
 
         map.put( "titulo", "Calculadora estadística" );
 
-        resultados.put( "Cx", Pares.resultadosCoeficientes );
-        resultados.put( "Px", Pares.resultadosParametros );
-        resultados.put( "pEst", proxyEstimado() );
+        resultadosTaller3.put( "Cx", Pares.resultadosCoeficientes );
+        resultadosTaller3.put( "Px", Pares.resultadosParametros );
+        resultadosTaller3.put( "pEst", proxyEstimado() );
 
-        get( "/", ( req, res ) -> new ModelAndView( map, "index" ), new JadeTemplateEngine());
-        get( "/promedio", ( req, res ) -> new ModelAndView( map, "promedio" ), new JadeTemplateEngine());
+        resultadosTaller4.put( "tRelativo", Lista.resultadoTest5);
+
+        get( "/", ( req, res ) -> new ModelAndView( map, "index" ),
+                new JadeTemplateEngine());
+        get( "/promedio", ( req, res ) -> new ModelAndView( map, "promedio" ),
+                new JadeTemplateEngine());
         get( "/regresion-correlacion", ( req, res ) ->
-                new ModelAndView( resultados, "estadistica" ), new JadeTemplateEngine());
+                new ModelAndView( resultadosTaller3, "estadistica" ),
+                new JadeTemplateEngine());
+        get( "/tamano-relativo", ( req, res ) ->
+                new ModelAndView( resultadosTaller4, "tamano-relativo"),
+                new JadeTemplateEngine());
     }
 
     /**
@@ -165,6 +174,7 @@ public class Main {
 
         Lista lista = new Lista ();
         PROBE estimacion = new PROBE();
+        Lista resultadoTest5 = new Lista();
 
         lista.datos.add( Pair.with( 18, 3 ) );
         lista.datos.add( Pair.with( 18, 3 ) );
@@ -180,9 +190,7 @@ public class Main {
         lista.datos.add( Pair.with( 87, 3 ) );
         lista.datos.add( Pair.with( 558, 10 ) );
 
-        List<Pair<String, Double>> resultado = estimacion.calcularTamanoRelativo( lista );
-
-        System.out.println("Resultado:" + resultado);
+        Lista.resultadoTest5 = estimacion.calcularTamanoRelativo( lista);
     }
 
     /**

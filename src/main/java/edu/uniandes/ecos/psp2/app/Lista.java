@@ -11,4 +11,5 @@ import java.util.List;
 public class Lista {
 
     public static List<Pair<Integer, Integer>> datos  = new ArrayList<>();
+    public static List<Pair<String, Double>> resultadoTest5  = new ArrayList<>();
 }
