@@ -180,7 +180,9 @@ public class Main {
         lista.datos.add( Pair.with( 558, 10 ) );
 
         PROBE estimacion = new PROBE();
-        estimacion.calcularTamanoRelativo( lista );
+        List<Pair<String, Double>> resultado = estimacion.calcularTamanoRelativo( lista );
+
+        System.out.println("Resultado:" + resultado);
     }
 
     /**

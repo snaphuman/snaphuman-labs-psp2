@@ -117,12 +117,21 @@ public class Estadistica implements Operacion, Media {
 
     public Double calcularVarianza ( List<Double> lista, Double media) {
 
-        return null;
+        double var = 0;
+
+        for (Double item : lista) {
+
+            var = var + (Math.pow((item - media),2) / (lista.size() - 1));
+        }
+
+        return var;
     }
 
     public Double calcularDesviacionEstandard (Double varianza) {
 
-        return null;
+        double sigma = Math.sqrt(varianza);
+
+        return sigma;
     }
 
 }
