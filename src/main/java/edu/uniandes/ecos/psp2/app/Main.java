@@ -65,6 +65,7 @@ public class Main {
     public static void test1 () {
 
         Pares lista = new Pares();
+        Operacion operacion = new Estadistica();
 
         lista.listaPares.clear();
 
@@ -79,7 +80,6 @@ public class Main {
         lista.listaPares.add( Pair.with( 368.0, 788.0 ) );
         lista.listaPares.add( Pair.with( 961.0, 1601.0 ) );
 
-        Operacion operacion = new Estadistica();
         operacion.calcular( lista );
     }
 
@@ -91,6 +91,7 @@ public class Main {
     public static void test2 () {
 
         Pares lista = new Pares();
+        Operacion operacion = new Estadistica();
 
         lista.listaPares.clear();
 
@@ -105,7 +106,6 @@ public class Main {
         lista.listaPares.add( Pair.with( 368.0, 38.8 ) );
         lista.listaPares.add( Pair.with( 961.0, 138.2 ) );
 
-        Operacion operacion = new Estadistica();
         operacion.calcular( lista );
     }
 
@@ -117,6 +117,7 @@ public class Main {
     public static void test3 () {
 
         Pares lista = new Pares ();
+        Operacion operacion = new Estadistica();
 
         lista.listaPares.clear();
 
@@ -131,7 +132,6 @@ public class Main {
         lista.listaPares.add( Pair.with( 433.0, 788.0 ) );
         lista.listaPares.add( Pair.with( 1130.0, 1601.0 ) );
 
-        Operacion operacion = new Estadistica();
         operacion.calcular( lista );
     }
 
@@ -143,6 +143,7 @@ public class Main {
     public static void test4 () {
 
         Pares lista = new Pares ();
+        Operacion operacion = new Estadistica();
 
         lista.listaPares.clear();
 
@@ -157,13 +158,13 @@ public class Main {
         lista.listaPares.add( Pair.with( 433.0, 38.8 ) );
         lista.listaPares.add( Pair.with( 1130.0, 138.2 ) );
 
-        Operacion operacion = new Estadistica();
         operacion.calcular( lista );
     }
 
     public static void test5() {
 
         Lista lista = new Lista ();
+        PROBE estimacion = new PROBE();
 
         lista.datos.add( Pair.with( 18, 3 ) );
         lista.datos.add( Pair.with( 18, 3 ) );
@@ -179,7 +180,6 @@ public class Main {
         lista.datos.add( Pair.with( 87, 3 ) );
         lista.datos.add( Pair.with( 558, 10 ) );
 
-        PROBE estimacion = new PROBE();
         List<Pair<String, Double>> resultado = estimacion.calcularTamanoRelativo( lista );
 
         System.out.println("Resultado:" + resultado);

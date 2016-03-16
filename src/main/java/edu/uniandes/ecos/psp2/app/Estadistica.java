@@ -18,6 +18,7 @@ public class Estadistica implements Operacion, Media {
      */
     public void calcular( Pares lista ) {
 
+        List<Triplet<Double, Double, Double>> tabla = new ArrayList<>();
         Double x;
         Double y;
         Double xy;
@@ -34,8 +35,6 @@ public class Estadistica implements Operacion, Media {
         Integer n = new Integer( lista.listaPares.size() );
 
         System.out.println( "Calculando Coeficientes" );
-
-        List<Triplet<Double, Double, Double>> tabla = new ArrayList<>();
 
         for ( Pair<Double, Double> item : lista.listaPares ) {
 
