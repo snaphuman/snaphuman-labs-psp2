@@ -3,8 +3,11 @@ package edu.uniandes.ecos.psp2.app;
 import java.util.List;
 
 /**
- * Created by snaphuman on 2/28/16.
+ * Interface para implementar los métodos
+ * que permiten calcular operaciones estadísticas
  *
+ * @type Part
+ * @author snaphuman
  */
 public interface Operacion {
 

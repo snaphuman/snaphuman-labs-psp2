@@ -6,14 +6,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by snaphuman on 2/29/16.
+ * Estadística: Clase que suministra los diferentes métodos
+ * que calculan varias operaciones estadísticas
+ *
+ * @type Part
+ * @author snaphuman
  */
 public class Estadistica implements Operacion, Media {
 
     /**
-     * Created by snaphuman on 2/29/16.
+     * Calcula los coeficientes y parámetros para los métodos
+     * de estimación de tamaño y tiempo a partir de una lista
+     * de pares de datos ordenados de tipo Double, los cuales
+     * son almacenados en en una lista de tipo Pares.
      *
      * @type Item
+     * @param lista Un objeto de tipo Pares  que contiene los
+     *              pares de datos ordenados
+     * @return Este método no retorna
      */
     public void calcular( Pares lista ) {
 
@@ -68,11 +78,14 @@ public class Estadistica implements Operacion, Media {
     }
 
     /**
-     * Calcula la media aritmética de una lista de valores dados.
+     * Calcula la media aritmética de una lista pares de datos
+     * ordenados de tipo Double para producir un par de datos
+     * MediaX y MediaY de tipo Pair
      *
      * @type Item
      * @param lista Pares de números double
-     * @return Pair con el resultado del cálculo para cada elemento
+     * @return Objeto de tipo Pair con el resultado del cálculo
+     * para cada elemento
      */
     public Pair<Double, Double> calcularMediaPares( Pares lista ) {
 
@@ -91,6 +104,13 @@ public class Estadistica implements Operacion, Media {
         return Pair.with( mediaX, mediaY );
     }
 
+    /**
+     * Calcula la Media para una lista de números de tipo Double
+     *
+     * @type Item
+     * @param lista Contiene valores de tipo double
+     * @return mediaX valor calculado de tipo Double
+     */
     public Double calcularMediaLista( List<Double> lista ) {
 
         double sumX = 0;
@@ -105,18 +125,36 @@ public class Estadistica implements Operacion, Media {
         return mediaX;
     }
 
+    /**
+     * Calcula la varianza a partir de una lista de valores de tipo
+     * Double que previamente fueon calculados con el logaritmo natural y
+     * el promedio de los n valores logarítmicos.
+     *
+     * @type Item
+     * @param lista Contiene valores logaritmicos de tipo Double
+     * @param media Promedio de los valores logaritmicos de tipo Double
+     * @return var Varianza de tipo double
+     */
     public Double calcularVarianza ( List<Double> lista, Double media ) {
 
         double var = 0;
 
         for (Double item : lista) {
 
-            var = var + ( Math.pow( ( item - media ),2 ) / ( lista.size() - 1 ) );
+            var = var + ( Math.pow( ( item - media ), 2 ) / ( lista.size() - 1 ) );
         }
 
         return var;
     }
 
+    /**
+     * Calcula la Desviación Estándard a partir del valor de la varianza
+     * de tipo double
+     *
+     * @type Item
+     * @param varianza valor tipo double previamente calculado
+     * @return sigma valor con la Desviación Estándard de tipo double
+     */
     public Double calcularDesviacionEstandard ( Double varianza ) {
 
         double sigma = Math.sqrt( varianza );

@@ -7,12 +7,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by snaphuman on 3/14/16.
+ * PROBE: Clase que permite realizar varios cálculos
+ * de estimación
+ *
+ * @type Part
+ * @author snaphuman
  */
 public class PROBE {
 
     private static DecimalFormat df = new DecimalFormat("#.####");
 
+    /**
+     * Calcula el tamaño relativo de una lista de valores dados de
+     * tipo Lista que tiene dos tipos Integer y retorna un par ordenado
+     * cuyos tipos son String y Double. Este método permitirá constuir
+     * la tabla con los rangos relativos Very Small (VS), Small (S),
+     * Medium (M), Large (L), Very Large (VL).
+     *
+     * @type Item
+     * @param lista Contiene pares ordenados de tipo Integer
+     * @return tamanoRelativo
+     */
     public List<Pair<String, Double>> calcularTamanoRelativo( Lista lista ) {
 
         List<Double> tamanoItem = new ArrayList<>();
@@ -40,6 +55,16 @@ public class PROBE {
         return tamanoRelativo;
     }
 
+    /**
+     * Provee la lista con los rangos logarítmicos para
+     * los valores relativos Very Small (VS), Small (S),
+     * Medium (M), Large (L), Very Large (VL).
+     *
+     * @type Item
+     * @param media Promedio de los valores entregados
+     * @param sigma Desviación estándard calculada
+     * @return resultado
+     */
     private List<Pair<String, Double>> rangosLogaritmicos ( Double media, Double sigma ) {
 
         List<Pair<String, Double>> resultado = new ArrayList<>();
@@ -53,6 +78,15 @@ public class PROBE {
         return resultado;
     }
 
+    /**
+     * Provee la lista con los rangos de valores de
+     * tamaño relativos Very Small (VS), Small (S),
+     * Medium (M), Large (L), Very Large (VL).
+     *
+     * @type Item
+     * @param rangosLogaritmicos de los valores entregados
+     * @return resultado
+     */
     private List<Pair<String, Double>> puntosMediosRangos ( List<Pair<String, Double>> rangosLogaritmicos ) {
 
         List<Pair<String, Double>> resultado = new ArrayList<>();

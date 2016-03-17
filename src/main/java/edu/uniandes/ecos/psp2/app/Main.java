@@ -1,13 +1,5 @@
 package edu.uniandes.ecos.psp2.app;
 
-/**
- * Calculadora.java
- * Propósito: Calcula el promedio y la desviacion estándard de una lista de valores dada.
- *
- * @author Fabián Hernández
- * @version 1.0 01/27/16
- * @licence GNU/GPL v3
- */
 import org.javatuples.Pair;
 import spark.ModelAndView;
 import spark.template.jade.JadeTemplateEngine;
@@ -19,11 +11,23 @@ import static spark.Spark.get;
 import static spark.Spark.port;
 import static spark.Spark.staticFileLocation;
 
+/**
+ * Calculadora: Permite ejecutar varios métodos
+ * de estimación que utilizan varias operaciones
+ * estadísticas, almacenar los sets de datos ordenados
+ * para presentarlos en la web.
+ *
+ * @type Part
+ * @author Fabián Hernández
+ * @version 3.0 01/27/16
+ * @licence GNU/GPL v3
+ */
 public class Main {
 
     /**
-     * Recibe los datos ingresados por el usuario a través de la
-     * linea de comandos
+     * Provee los métodos http para enviar los
+     * resulados de los cálculos en la web en
+     * la ruta indicada
      *
      * @type Item
      * @param args
@@ -167,6 +171,11 @@ public class Main {
         operacion.calcular( lista );
     }
 
+    /**
+     * Created by snaphuman
+     *
+     * @type Item
+     */
     public static void test5() {
 
         Lista lista = new Lista ();
