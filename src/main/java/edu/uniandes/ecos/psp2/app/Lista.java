@@ -10,7 +10,6 @@ import java.util.List;
  * en donde se almacenan datos a analizar o los resultados
  * que serán presentados en la web.
  *
- * @type Part
  * @author snaphuman
  */
 public class Lista {

@@ -9,7 +9,6 @@ import java.util.List;
  * Estadística: Clase que suministra los diferentes métodos
  * que calculan varias operaciones estadísticas
  *
- * @type Part
  * @author snaphuman
  */
 public class Estadistica implements Operacion, Media {

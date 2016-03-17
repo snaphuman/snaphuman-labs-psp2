@@ -17,7 +17,6 @@ import static spark.Spark.staticFileLocation;
  * estadísticas, almacenar los sets de datos ordenados
  * para presentarlos en la web.
  *
- * @type Part
  * @author Fabián Hernández
  * @version 3.0 01/27/16
  * @licence GNU/GPL v3

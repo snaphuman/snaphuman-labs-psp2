@@ -8,7 +8,6 @@ import java.util.List;
  * que permiten calcular la Media con diferentes
  * tipos de datos
  *
- * @type Part
  * @author snaphuman
  */
 public interface Media {
