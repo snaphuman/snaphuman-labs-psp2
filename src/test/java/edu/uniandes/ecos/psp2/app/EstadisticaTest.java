@@ -42,6 +42,38 @@ public class EstadisticaTest {
         assertEquals( 1.0, result, precision );
     }
 
+    @Test
+    public void calcularTamanoRelativo() {
 
+        Lista lista = new Lista ();
+        PROBE estimacion = new PROBE();
+
+        lista.datos.add( Pair.with( 18, 3 ) );
+        lista.datos.add( Pair.with( 18, 3 ) );
+        lista.datos.add( Pair.with( 25, 3 ) );
+        lista.datos.add( Pair.with( 31, 3 ) );
+        lista.datos.add( Pair.with( 37, 3 ) );
+        lista.datos.add( Pair.with( 82, 5 ) );
+        lista.datos.add( Pair.with( 82, 4 ) );
+        lista.datos.add( Pair.with( 87, 4 ) );
+        lista.datos.add( Pair.with( 89, 4 ) );
+        lista.datos.add( Pair.with( 230, 10 ) );
+        lista.datos.add( Pair.with( 85, 3 ) );
+        lista.datos.add( Pair.with( 87, 3 ) );
+        lista.datos.add( Pair.with( 558, 10 ) );
+
+        Lista.resultadoTest5 = estimacion.calcularTamanoRelativo( lista);
+
+        assertEquals( "VS", Lista.resultadoTest5.get(0).getValue0() );
+        assertEquals( 4.3954, Lista.resultadoTest5.get(0).getValue1(), precision );
+        assertEquals( "S", Lista.resultadoTest5.get(1).getValue0() );
+        assertEquals( 8.5083, Lista.resultadoTest5.get(1).getValue1(), precision );
+        assertEquals( "M", Lista.resultadoTest5.get(2).getValue0() );
+        assertEquals( 16.4697, Lista.resultadoTest5.get(2).getValue1(), precision );
+        assertEquals( "L", Lista.resultadoTest5.get(3).getValue0() );
+        assertEquals( 31.8807, Lista.resultadoTest5.get(3).getValue1(), precision );
+        assertEquals( "VL", Lista.resultadoTest5.get(4).getValue0() );
+        assertEquals( 61.7121, Lista.resultadoTest5.get(4).getValue1(), precision );
+    }
 
 }
