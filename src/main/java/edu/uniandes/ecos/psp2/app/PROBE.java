@@ -13,34 +13,34 @@ public class PROBE {
 
     private static DecimalFormat df = new DecimalFormat("#.####");
 
-    public List<Pair<String, Double>> calcularTamanoRelativo(Lista lista) {
+    public List<Pair<String, Double>> calcularTamanoRelativo( Lista lista ) {
 
         List<Double> tamanoItem = new ArrayList<>();
         List<Double> lnTamanoItem = new ArrayList<>();
 
-        for ( Pair<Integer, Integer> item : lista.datos) {
+        for ( Pair<Integer, Integer> item : lista.datos ) {
 
             Double x = Double.valueOf(
-                    df.format(item.getValue0().doubleValue() /
-                            item.getValue1().doubleValue()));
+                    df.format( item.getValue0().doubleValue() /
+                            item.getValue1().doubleValue() ) );
 
-            tamanoItem.add(x);
-            lnTamanoItem.add(Double.valueOf(df.format(Math.log(x))));
+            tamanoItem.add( x );
+            lnTamanoItem.add( Double.valueOf( df.format( Math.log( x ) ) ) );
         }
 
-        Double media = new Estadistica().calcularMediaLista(lnTamanoItem);
+        Double media = new Estadistica().calcularMediaLista( lnTamanoItem );
 
-        Double varianza = new Estadistica().calcularVarianza(lnTamanoItem, media);
+        Double varianza = new Estadistica().calcularVarianza( lnTamanoItem, media );
 
-        Double desviacionEst = new Estadistica().calcularDesviacionEstandard(varianza);
+        Double desviacionEst = new Estadistica().calcularDesviacionEstandard( varianza );
 
-        List<Pair<String, Double>> rangos = this.rangosLogaritmicos(media, desviacionEst);
-        List<Pair<String, Double>> tamanoRelativo = this.puntosMediosRangos(rangos);
+        List<Pair<String, Double>> rangos = this.rangosLogaritmicos( media, desviacionEst );
+        List<Pair<String, Double>> tamanoRelativo = this.puntosMediosRangos( rangos );
 
         return tamanoRelativo;
     }
 
-    private List<Pair<String, Double>> rangosLogaritmicos (Double media, Double sigma) {
+    private List<Pair<String, Double>> rangosLogaritmicos ( Double media, Double sigma ) {
 
         List<Pair<String, Double>> resultado = new ArrayList<>();
 
@@ -53,14 +53,14 @@ public class PROBE {
         return resultado;
     }
 
-    private List<Pair<String, Double>> puntosMediosRangos (List<Pair<String, Double>> rangosLogaritmicos) {
+    private List<Pair<String, Double>> puntosMediosRangos ( List<Pair<String, Double>> rangosLogaritmicos ) {
 
         List<Pair<String, Double>> resultado = new ArrayList<>();
 
         int i = 0;
-        for (Pair<String, Double> item : rangosLogaritmicos) {
+        for ( Pair<String, Double> item : rangosLogaritmicos ) {
 
-            resultado.add(item.setAt1(Math.exp(rangosLogaritmicos.get(i).getValue1())));
+            resultado.add( item.setAt1( Math.exp(rangosLogaritmicos.get( i ).getValue1() ) ) );
         i++;
         }
 

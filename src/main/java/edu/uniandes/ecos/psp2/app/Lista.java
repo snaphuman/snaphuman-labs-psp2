@@ -1,7 +1,6 @@
 package edu.uniandes.ecos.psp2.app;
 
 import org.javatuples.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 

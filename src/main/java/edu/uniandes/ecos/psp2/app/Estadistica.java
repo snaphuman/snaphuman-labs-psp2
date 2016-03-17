@@ -2,7 +2,6 @@ package edu.uniandes.ecos.psp2.app;
 
 import org.javatuples.Pair;
 import org.javatuples.Triplet;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +18,7 @@ public class Estadistica implements Operacion, Media {
     public void calcular( Pares lista ) {
 
         List<Triplet<Double, Double, Double>> tabla = new ArrayList<>();
+        Integer n = new Integer( lista.listaPares.size() );
         Double x;
         Double y;
         Double xy;
@@ -31,10 +31,6 @@ public class Estadistica implements Operacion, Media {
         Double y2Sum = 0.0;
         Double xAvg;
         Double yAvg;
-
-        Integer n = new Integer( lista.listaPares.size() );
-
-        System.out.println( "Calculando Coeficientes" );
 
         for ( Pair<Double, Double> item : lista.listaPares ) {
 
@@ -52,7 +48,6 @@ public class Estadistica implements Operacion, Media {
             xySum = xySum + xy;
             x2Sum = x2Sum + x2;
             y2Sum = y2Sum + y2;
-
         }
 
         xAvg = this.calcularMediaPares( lista ).getValue0();
@@ -81,8 +76,6 @@ public class Estadistica implements Operacion, Media {
      */
     public Pair<Double, Double> calcularMediaPares( Pares lista ) {
 
-        System.out.println( "Calculando Media" );
-
         double sumX = 0;
         double sumY = 0;
 
@@ -95,16 +88,14 @@ public class Estadistica implements Operacion, Media {
         Double mediaX = sumX / lista.listaPares.size();
         Double mediaY = sumY / lista.listaPares.size();
 
-        return Pair.with(mediaX, mediaY);
+        return Pair.with( mediaX, mediaY );
     }
 
     public Double calcularMediaLista( List<Double> lista ) {
 
-        System.out.println( "Calculando Media" );
-
         double sumX = 0;
 
-        for( Double item : lista) {
+        for( Double item : lista ) {
 
             sumX = sumX + item;
         }
@@ -114,23 +105,22 @@ public class Estadistica implements Operacion, Media {
         return mediaX;
     }
 
-    public Double calcularVarianza ( List<Double> lista, Double media) {
+    public Double calcularVarianza ( List<Double> lista, Double media ) {
 
         double var = 0;
 
         for (Double item : lista) {
 
-            var = var + (Math.pow((item - media),2) / (lista.size() - 1));
+            var = var + ( Math.pow( ( item - media ),2 ) / ( lista.size() - 1 ) );
         }
 
         return var;
     }
 
-    public Double calcularDesviacionEstandard (Double varianza) {
+    public Double calcularDesviacionEstandard ( Double varianza ) {
 
-        double sigma = Math.sqrt(varianza);
+        double sigma = Math.sqrt( varianza );
 
         return sigma;
     }
-
 }

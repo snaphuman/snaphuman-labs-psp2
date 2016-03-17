@@ -1,4 +1,5 @@
 package edu.uniandes.ecos.psp2.app;
+
 /**
  * Calculadora.java
  * Propósito: Calcula el promedio y la desviacion estándard de una lista de valores dada.
@@ -7,16 +8,13 @@ package edu.uniandes.ecos.psp2.app;
  * @version 1.0 01/27/16
  * @licence GNU/GPL v3
  */
-
 import org.javatuples.Pair;
 import spark.ModelAndView;
 import spark.template.jade.JadeTemplateEngine;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import static spark.Spark.get;
 import static spark.Spark.port;
 import static spark.Spark.staticFileLocation;
@@ -51,7 +49,6 @@ public class Main {
         resultadosTaller3.put( "Cx", Pares.resultadosCoeficientes );
         resultadosTaller3.put( "Px", Pares.resultadosParametros );
         resultadosTaller3.put( "pEst", proxyEstimado() );
-
         resultadosTaller4.put( "tRelativo", Lista.resultadoTest5);
 
         get( "/", ( req, res ) -> new ModelAndView( map, "index" ),

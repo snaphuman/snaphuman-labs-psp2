@@ -1,7 +1,6 @@
 package edu.uniandes.ecos.psp2.app;
 
 import org.javatuples.Pair;
-
 import java.util.List;
 
 /**
@@ -10,6 +9,6 @@ import java.util.List;
  */
 public interface Media {
 
-    Pair<Double, Double> calcularMediaPares(Pares lista);
-    Double calcularMediaLista(List<Double> lista);
+    Pair<Double, Double> calcularMediaPares( Pares lista );
+    Double calcularMediaLista( List<Double> lista );
 }
