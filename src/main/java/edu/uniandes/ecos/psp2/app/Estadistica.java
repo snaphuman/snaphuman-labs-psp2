@@ -160,4 +160,24 @@ public class Estadistica implements Operacion, Media {
 
         return sigma;
     }
+
+    public Integer calcularGammaInteger (Integer valor) {
+
+        return null;
+    }
+
+    public Double calcularGammaDouble (Double valor) {
+
+        return null;
+    }
+
+    public Double calcularDistribucionT (Integer num_seg, Integer dof) {
+
+        return null;
+    }
+
+    public Integer obtenerMultiplicador (Integer key, Integer value) {
+
+        return null;
+    }
 }

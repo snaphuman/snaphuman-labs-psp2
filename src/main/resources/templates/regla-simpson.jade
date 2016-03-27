@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    link(rel="stylesheet", type="text/css", href="/css/pure-min.css")
+    link(rel="stylesheet", type="text/css", href="/css/main.css")
+  body
+    h1 #{titulo}
+    form(method="post", action="/regla-simpson/calcular")
+      label num_seg
+      input(type="text", name="num_seg")
+      label dof
+      input(type="text", name="dof")
+      label x
+      input(type="x", name="x")
+      button(type="submit") Calcular

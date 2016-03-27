@@ -100,4 +100,14 @@ public class PROBE {
 
         return resultado;
     }
+
+    public static Pair<Double, Double> calcularSimpson (Double x, Integer num_seg, Double e) {
+
+        return null;
+    }
+
+    private Boolean validarError (Pair<Double, Double> tupla, Double e) {
+
+        return null;
+    }
 }

@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import static spark.Spark.get;
+import static spark.Spark.post;
 import static spark.Spark.port;
 import static spark.Spark.staticFileLocation;
 
@@ -46,6 +47,7 @@ public class Main {
         Map<String, String> map = new HashMap<>();
         Map<String, List> resultadosTaller3 = new HashMap<>();
         Map<String, List> resultadosTaller4 = new HashMap<>();
+        Map<String, String> taller5 = new HashMap<>();
 
         map.put( "titulo", "Calculadora estadística" );
 
@@ -53,6 +55,8 @@ public class Main {
         resultadosTaller3.put( "Px", Pares.resultadosParametros );
         resultadosTaller3.put( "pEst", proxyEstimado() );
         resultadosTaller4.put( "tRelativo", Lista.resultadoTest5);
+
+        taller5.put("titulo", "Calcular Regla de Simpson");
 
         get( "/", ( req, res ) -> new ModelAndView( map, "index" ),
                 new JadeTemplateEngine());
@@ -64,6 +68,15 @@ public class Main {
         get( "/tamano-relativo", ( req, res ) ->
                 new ModelAndView( resultadosTaller4, "tamano-relativo"),
                 new JadeTemplateEngine());
+
+        get("/regla-simpson", (req, res) ->
+                new ModelAndView( taller5, "regla-simpson"),
+                new JadeTemplateEngine());
+
+        post("regla-simpson/calcular", (req, res) -> {
+            System.out.println(req.body());
+            return "";
+        });
     }
 
     /**
