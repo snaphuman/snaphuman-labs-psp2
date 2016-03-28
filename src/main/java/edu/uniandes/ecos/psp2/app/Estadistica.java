@@ -171,13 +171,15 @@ public class Estadistica implements Operacion, Media {
         return null;
     }
 
-    public Double calcularDistribucionT (Integer num_seg, Integer dof) {
-
-        return null;
+    public Double calcularDistribucionT (Double Wi, Integer dof) {
+        System.out.println("Calculando Distribucion T");
+        System.out.println(Wi);
+        return Wi;
     }
 
-    public Integer obtenerMultiplicador (Integer key, Integer value) {
-
-        return null;
+    public Integer obtenerMultiplicador (int indice, int num_seg) {
+        System.out.println("Obteniendo Multiplicado");
+        System.out.println(indice);
+        return indice;
     }
 }

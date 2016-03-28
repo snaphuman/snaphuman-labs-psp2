@@ -104,6 +104,23 @@ public class PROBE {
     public Pair<Double, Double> calcularSimpson (Double x, Integer num_seg, Double e, Integer dof) {
         System.out.println("Calculando Simpson");
 
+        Double W;
+        Operacion distribucionT = new Estadistica();
+        Operacion multiplicador = new Estadistica();
+        Double rDT = null;
+        int m;
+
+        W = x / num_seg;
+
+        // Iteración hasta que alidarError = true,
+        // de lo contrario num_seg = num_seg*2
+        int i;
+        for(i = 0; i < num_seg; i++) {
+            System.out.println("Iterando");
+            rDT = distribucionT.calcularDistribucionT(W*i, dof);
+            m = multiplicador.obtenerMultiplicador(i, num_seg);
+        }
+
         System.out.println(x);
         System.out.println(num_seg);
         System.out.println(e);

@@ -21,7 +21,7 @@ public interface Operacion {
 
     Double calcularGammaDouble ( Double valor );
 
-    Double calcularDistribucionT (Integer num_seg, Integer dof);
+    Double calcularDistribucionT (Double Wi, Integer dof);
 
-    Integer obtenerMultiplicador ( Integer key, Integer value );
+    Integer obtenerMultiplicador ( int indice, int size );
 }
