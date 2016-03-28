@@ -16,4 +16,12 @@ public interface Operacion {
     Double calcularVarianza (List<Double> lista, Double media);
 
     Double calcularDesviacionEstandard (Double varianza);
+
+    Integer calcularGammaInteger ( Integer valor );
+
+    Double calcularGammaDouble ( Double valor );
+
+    Double calcularDistribucionT (Integer num_seg, Integer dof);
+
+    Integer obtenerMultiplicador ( Integer key, Integer value );
 }
