@@ -166,14 +166,35 @@ public class Estadistica implements Operacion, Media {
         return null;
     }
 
-    public Double calcularGammaDouble (Double valor) {
+    public Double calcularGamma (Double valor) {
 
-        return null;
+        Double gamma = 1.0;
+
+        if (valor%1 != 0) {
+
+            do {
+
+                valor -= 1;
+                gamma = gamma * valor;
+            } while (valor != 0.5);
+
+            gamma = gamma * Math.sqrt(Math.PI);
+        } else {
+
+            for (int i = 1; i <= valor ; i++) {
+
+                valor -= 1;
+                gamma = gamma * valor;
+            }
+        }
+
+        return gamma;
     }
 
     public Double calcularDistribucionT (Double Wi, Integer dof) {
         System.out.println("Calculando Distribucion T");
-        System.out.println(Wi);
+
+
         return Wi;
     }
 

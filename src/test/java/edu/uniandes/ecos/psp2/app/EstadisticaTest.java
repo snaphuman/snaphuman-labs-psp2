@@ -76,4 +76,35 @@ public class EstadisticaTest {
         assertEquals( 61.7121, Lista.resultadoTest5.get(4).getValue1(), precision );
     }
 
+    @Test
+    public void calcularGammaDouble () {
+        Double valor = (double) 9 / 2;
+        Double gamma = new Double(1.0);
+        do {
+
+            valor -= 1;
+            gamma = gamma * valor;
+
+        } while (valor != 0.5);
+
+        gamma = gamma * Math.sqrt(Math.PI);
+
+        assertEquals(11.63173, gamma, precision);
+    }
+
+    @Test
+    public void calcularGammaInteger () {
+
+        Integer valor = 5;
+        Integer gamma = 1;
+
+        for (int i = 1; i <= valor ; i++) {
+            valor -= 1;
+            gamma = gamma * valor;
+        }
+
+        assertEquals(24, gamma, precision);
+
+    }
+
 }

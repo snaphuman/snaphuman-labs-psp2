@@ -104,15 +104,26 @@ public class PROBE {
     public Pair<Double, Double> calcularSimpson (Double x, Integer num_seg, Double e, Integer dof) {
         System.out.println("Calculando Simpson");
 
-        Double W;
         Operacion distribucionT = new Estadistica();
         Operacion multiplicador = new Estadistica();
+        Operacion gamaDof = new Estadistica();
+        Double W;
         Double rDT = null;
+        Double gDof;
         int m;
+
+        // verificar que num_seg sea un número par
+
+        // Calcular primera parte de la ecuación gDof
+        gDof = (gamaDof.calcularGamma(((double) dof + 1)/2)) /
+                (Math.pow((dof * Math.PI), 0.5) *
+                gamaDof.calcularGamma((double) dof /2));
+
+        System.out.println("Gamma " + gDof);
 
         W = x / num_seg;
 
-        // Iteración hasta que alidarError = true,
+        // Iteración hasta que validarError = true,
         // de lo contrario num_seg = num_seg*2
         int i;
         for(i = 0; i < num_seg; i++) {

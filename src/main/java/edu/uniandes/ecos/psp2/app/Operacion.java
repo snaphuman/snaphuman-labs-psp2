@@ -19,7 +19,7 @@ public interface Operacion {
 
     Integer calcularGammaInteger ( Integer valor );
 
-    Double calcularGammaDouble ( Double valor );
+    Double calcularGamma ( Double valor );
 
     Double calcularDistribucionT (Double Wi, Integer dof);
 
