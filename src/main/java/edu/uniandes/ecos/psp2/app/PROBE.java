@@ -101,8 +101,13 @@ public class PROBE {
         return resultado;
     }
 
-    public static Pair<Double, Double> calcularSimpson (Double x, Integer num_seg, Double e) {
+    public Pair<Double, Double> calcularSimpson (Double x, Integer num_seg, Double e, Integer dof) {
+        System.out.println("Calculando Simpson");
 
+        System.out.println(x);
+        System.out.println(num_seg);
+        System.out.println(e);
+        System.out.println(dof);
         return null;
     }
 

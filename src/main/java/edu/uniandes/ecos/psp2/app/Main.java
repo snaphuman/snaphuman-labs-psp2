@@ -74,7 +74,21 @@ public class Main {
                 new JadeTemplateEngine());
 
         post("regla-simpson/calcular", (req, res) -> {
-            System.out.println(req.body());
+
+            PROBE simpson = new PROBE();
+            Integer num_seg = null;
+            Integer dof = null;
+            Double x = null;
+            Double error = null;
+
+            // TODO: Validar tipos de datos en valores de usuario
+            num_seg = Integer.parseInt(req.queryParams("num_seg"));
+            dof = Integer.parseInt(req.queryParams("dof"));
+            x = Double.parseDouble(req.queryParams("x"));
+            error = Double.parseDouble(req.queryParams("error"));
+
+            simpson.calcularSimpson(x, num_seg, error, dof);
+
             return "";
         });
     }
