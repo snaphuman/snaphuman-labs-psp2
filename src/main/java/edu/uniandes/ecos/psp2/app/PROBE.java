@@ -127,9 +127,11 @@ public class PROBE {
         // de lo contrario num_seg = num_seg*2
         int i;
         for(i = 0; i < num_seg; i++) {
-            System.out.println("Iterando");
+
             rDT = distribucionT.calcularDistribucionT(W*i, dof);
             m = multiplicador.obtenerMultiplicador(i, num_seg);
+
+            System.out.println("rDT: " + rDT);
         }
 
         System.out.println(x);
