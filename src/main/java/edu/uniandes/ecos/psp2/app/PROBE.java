@@ -126,7 +126,7 @@ public class PROBE {
         // Iteración hasta que validarError = true,
         // de lo contrario num_seg = num_seg*2
         int i;
-        for(i = 0; i < num_seg; i++) {
+        for(i = 0; i <= num_seg; i++) {
 
             rDT = distribucionT.calcularDistribucionT(W*i, dof);
             m = multiplicador.obtenerMultiplicador(i, num_seg);
