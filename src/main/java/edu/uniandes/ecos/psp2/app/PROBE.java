@@ -112,7 +112,7 @@ public class PROBE {
         Double gDof;
         int m;
 
-        // verificar que num_seg sea un número par
+        // TODO: verificar que num_seg sea un número par
 
         // Calcular primera parte de la ecuación gDof
         gDof = (gamaDof.calcularGamma(((double) dof + 1)/2)) /
@@ -131,6 +131,7 @@ public class PROBE {
             rDT = distribucionT.calcularDistribucionT(W*i, dof);
             m = multiplicador.obtenerMultiplicador(i, num_seg);
 
+            System.out.println("M: " + m);
             System.out.println("rDT: " + rDT);
         }
 

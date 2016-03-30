@@ -107,4 +107,32 @@ public class EstadisticaTest {
 
     }
 
+    @Test
+    public void obtenerMultiplicador() {
+
+        Integer m = 0;
+        Integer num_seg = 10;
+
+        for (int indice = 0; indice <= num_seg; indice++) {
+
+            // verificar si el indice es inicio/fin,
+            // o es par/impar
+            if (indice == 0) {
+                m = 1;
+            } else if (indice == num_seg) {
+
+                m = 1;
+            } else if (indice % 2 == 0) {
+
+                m = 2;
+            } else if (indice % 2 != 0) {
+
+                m = 4;
+            }
+
+            System.out.println("M: " +  m);
+        }
+
+    }
+
 }

@@ -199,8 +199,24 @@ public class Estadistica implements Operacion, Media {
     }
 
     public Integer obtenerMultiplicador (int indice, int num_seg) {
-        System.out.println("Obteniendo Multiplicado");
-        System.out.println(indice);
-        return indice;
+
+        Integer m = 0;
+
+        // verificar si el indice es inicio/fin,
+        // o es par/impar
+        if (indice == 0) {
+            m = 1;
+        } else if (indice == num_seg) {
+
+            m = 1;
+        } else if (indice % 2 == 0) {
+
+            m = 2;
+        } else if (indice % 2 != 0) {
+
+            m = 4;
+        }
+
+        return m;
     }
 }
