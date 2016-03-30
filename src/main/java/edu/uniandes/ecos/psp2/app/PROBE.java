@@ -101,7 +101,7 @@ public class PROBE {
         return resultado;
     }
 
-    public Pair<Double, Double> calcularSimpson (Double x, Integer num_seg, Double e, Integer dof) {
+    public Double calcularSimpson (Double x, Integer num_seg, Double e, Integer dof) {
         System.out.println("Calculando Simpson");
 
         Operacion distribucionT = new Estadistica();
@@ -111,7 +111,8 @@ public class PROBE {
         Double Fx;
         Double gDof;
         Double simpsonItem;
-        Double simpsonTotal = 0.0;
+        List<Double> resultados = new ArrayList<>();
+        Boolean esValido = false;
         int m;
 
         // TODO: verificar que num_seg sea un número par
@@ -123,26 +124,50 @@ public class PROBE {
 
         System.out.println("Gamma " + gDof);
 
-        W = x / num_seg;
 
         // Iteración hasta que validarError = true,
         // de lo contrario num_seg = num_seg*2
-        int i;
-        for(i = 0; i <= num_seg; i++) {
 
-            Fx = distribucionT.calcularDistribucionT(W*i, dof, gDof);
-            m = multiplicador.obtenerMultiplicador(i, num_seg);
-            simpsonItem = (W/3) * m * Fx;
-            simpsonTotal += simpsonItem;
-        }
+        do {
+            Double simpsonTotal = 0.0;
+            W = x / num_seg;
 
-        System.out.println("SimpsonTotal: " + simpsonTotal);
+            int i;
+            for (i = 0; i <= num_seg; i++) {
 
-        return null;
+                Fx = distribucionT.calcularDistribucionT(W * i, dof, gDof);
+                m = multiplicador.obtenerMultiplicador(i, num_seg);
+                simpsonItem = (W / 3) * m * Fx;
+                simpsonTotal += simpsonItem;
+            }
+
+            if (resultados.size() == 0) {
+
+                resultados.add(simpsonTotal);
+                num_seg *= 2;
+            } else if (resultados.size() == 1 ) {
+
+                resultados.add(simpsonTotal);
+            } else if (resultados.size() >= 2) {
+
+                esValido = validarError(resultados, e);
+            }
+
+        } while (esValido != true);
+
+        return resultados.get(resultados.size() -1 ).doubleValue();
     }
 
-    private Boolean validarError (Pair<Double, Double> tupla, Double e) {
+    private Boolean validarError (List<Double> resultados, Double e) {
 
-        return null;
+        System.out.println("Validando");
+        int ultimo = resultados.size() - 1;
+        int penultimo = resultados.size() -2;
+
+        Boolean esValido = (resultados.get(penultimo).doubleValue() -
+                resultados.get(ultimo).doubleValue() < e) ? true : false;
+
+        System.out.println(esValido);
+        return esValido;
     }
 }

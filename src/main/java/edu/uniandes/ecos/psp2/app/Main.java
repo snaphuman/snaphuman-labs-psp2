@@ -80,6 +80,7 @@ public class Main {
             Integer dof = null;
             Double x = null;
             Double error = null;
+            Double resultado;
 
             // TODO: Validar tipos de datos en valores de usuario
             num_seg = Integer.parseInt(req.queryParams("num_seg"));
@@ -87,9 +88,9 @@ public class Main {
             x = Double.parseDouble(req.queryParams("x"));
             error = Double.parseDouble(req.queryParams("error"));
 
-            simpson.calcularSimpson(x, num_seg, error, dof);
+            resultado = simpson.calcularSimpson(x, num_seg, error, dof);
 
-            return "";
+            return resultado;
         });
     }
 
