@@ -108,7 +108,7 @@ public class PROBE {
         Operacion multiplicador = new Estadistica();
         Operacion gamaDof = new Estadistica();
         Double W;
-        Double rDT = null;
+        Double Fx;
         Double gDof;
         int m;
 
@@ -128,11 +128,11 @@ public class PROBE {
         int i;
         for(i = 0; i <= num_seg; i++) {
 
-            rDT = distribucionT.calcularDistribucionT(W*i, dof);
+            Fx = distribucionT.calcularDistribucionT(W*i, dof, gDof);
             m = multiplicador.obtenerMultiplicador(i, num_seg);
 
             System.out.println("M: " + m);
-            System.out.println("rDT: " + rDT);
+            System.out.println("Fx: " + Fx);
         }
 
         System.out.println(x);

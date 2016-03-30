@@ -191,10 +191,10 @@ public class Estadistica implements Operacion, Media {
         return gamma;
     }
 
-    public Double calcularDistribucionT (Double Wi, Integer dof) {
+    public Double calcularDistribucionT (Double Wi, Integer dof, Double gDof) {
         System.out.println("Calculando Distribucion T");
 
-        Double rDT = Math.pow( 1 + (Math.pow( Wi.doubleValue(), 2 ) / dof), -((dof + 1)/2));
+        Double rDT = gDof * (Math.pow( 1 + (Math.pow( Wi.doubleValue(), 2 ) / dof), -((dof + 1)/2)));
         return rDT;
     }
 
