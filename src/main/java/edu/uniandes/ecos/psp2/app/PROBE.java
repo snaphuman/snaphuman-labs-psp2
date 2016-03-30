@@ -110,6 +110,8 @@ public class PROBE {
         Double W;
         Double Fx;
         Double gDof;
+        Double simpsonItem;
+        Double simpsonTotal = 0.0;
         int m;
 
         // TODO: verificar que num_seg sea un número par
@@ -130,15 +132,12 @@ public class PROBE {
 
             Fx = distribucionT.calcularDistribucionT(W*i, dof, gDof);
             m = multiplicador.obtenerMultiplicador(i, num_seg);
-
-            System.out.println("M: " + m);
-            System.out.println("Fx: " + Fx);
+            simpsonItem = (W/3) * m * Fx;
+            simpsonTotal += simpsonItem;
         }
 
-        System.out.println(x);
-        System.out.println(num_seg);
-        System.out.println(e);
-        System.out.println(dof);
+        System.out.println("SimpsonTotal: " + simpsonTotal);
+
         return null;
     }
 
