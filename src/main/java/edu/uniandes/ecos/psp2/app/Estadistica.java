@@ -181,11 +181,11 @@ public class Estadistica implements Operacion, Media {
             gamma = gamma * Math.sqrt(Math.PI);
         } else {
 
-            for (int i = 1; i <= valor ; i++) {
+            do {
 
                 valor -= 1;
                 gamma = gamma * valor;
-            }
+            } while (valor != 1);
         }
 
         return gamma;
