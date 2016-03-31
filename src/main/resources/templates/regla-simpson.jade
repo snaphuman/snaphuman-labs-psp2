@@ -3,15 +3,29 @@ html
   head
     link(rel="stylesheet", type="text/css", href="/css/pure-min.css")
     link(rel="stylesheet", type="text/css", href="/css/main.css")
+    script(src="/js/jquery.min.js")
+    script(src="/js/main.js")
   body
     h1 #{titulo}
-    form(method="post", action="/regla-simpson/calcular")
-      label num_seg
-      input(type="text", name="num_seg")
-      label dof
-      input(type="text", name="dof")
-      label x
-      input(type="text", name="x")
-      label Error
-      input(type="text", name="error")
-      button(type="submit") Calcular
+    form.pure-form.pure-form-aligned(method="post", action="/regla-simpson/calcular")
+      fieldset
+        .pure-control-group
+          label(for="num_seg") Número de segmentos
+          input#num_seg(type="text", name="num_seg", placeholder="num_seg")
+        .pure-control-group
+          label(for="dog") Degree of Freedom
+          input#dof(type="text", name="dof", placeholder="dof")
+        .pure-control-group
+          label(for="x") Valor de x
+          input#x(type="text", name="x", placeholder="x")
+        .pure-control-group
+          label(for="error") Error aceptable
+          input#error(type="text", name="error", placeholder="error")
+        .pure-controls
+          button.pure-button.pure-button-primary(type="submit") Calcular
+          p
+            a#test1.pure-button(href="#") Test 1
+          p
+            a#test2.pure-button(href="#") Test 2
+          p
+            a#test3.pure-button(href="#") Test 3
