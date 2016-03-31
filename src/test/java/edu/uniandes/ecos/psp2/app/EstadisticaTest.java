@@ -135,4 +135,17 @@ public class EstadisticaTest {
 
     }
 
+    @Test
+    public void calcularSimpson() {
+
+        PROBE simpson = new PROBE();
+
+        Double test1 = simpson.calcularSimpson(1.1, 10, 0.00001, 9);
+        Double test2 = simpson.calcularSimpson(1.1812, 10, 0.00001, 9);
+        Double test3 = simpson.calcularSimpson(2.750, 30, 0.00001, 9);
+        assertEquals(0.35006, test1, precision );
+        assertEquals(0.36757, test2, precision );
+        assertEquals(0.49500, test3, precision );
+    }
+
 }
