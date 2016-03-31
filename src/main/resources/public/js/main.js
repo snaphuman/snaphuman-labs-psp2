@@ -29,4 +29,21 @@ $(document).ready(function () {
     inX.val(2.750);
     inError.val(0.00001);
     });
+
+    $("#enviar").click(function () {
+        var values = $("form#valores").serialize();
+        console.log(values);
+        $.ajax({
+            url: "/regla-simpson/calcular",
+            type: "post",
+            data: values,
+            type: "text",
+            success: function(response) {
+                alert("responde");
+            }
+        }).done(function (msg) {
+
+                alert("mensaje");
+        })
+    });
 })
