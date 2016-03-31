@@ -101,6 +101,16 @@ public class PROBE {
         return resultado;
     }
 
+    /**
+     * Realiza lals operaciones para calcular la regla de simpson
+     *
+     * @type Item
+     * @param x
+     * @param num_seg
+     * @param e
+     * @param dof
+     * @return
+     */
     public Double calcularSimpson (Double x, Integer num_seg, Double e, Integer dof) {
         System.out.println("Calculando Simpson");
 
@@ -162,6 +172,15 @@ public class PROBE {
         return resultados.get(resultados.size() -1 ).doubleValue();
     }
 
+    /**
+     * Realiza la comparación entre los resultados de la regla de
+     * simpson
+     *
+     * @type Item
+     * @param resultados
+     * @param e
+     * @return
+     */
     private Boolean validarError (List<Double> resultados, Double e) {
 
         System.out.println("Validando");

@@ -17,8 +17,6 @@ public interface Operacion {
 
     Double calcularDesviacionEstandard (Double varianza);
 
-    Integer calcularGammaInteger ( Integer valor );
-
     Double calcularGamma ( Double valor );
 
     Double calcularDistribucionT (Double Wi, Integer dof, Double gDof);

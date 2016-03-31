@@ -161,11 +161,15 @@ public class Estadistica implements Operacion, Media {
         return sigma;
     }
 
-    public Integer calcularGammaInteger (Integer valor) {
 
-        return null;
-    }
-
+    /**
+     * Calcula la función gama determinando si el valor entregado
+     * es entero o no.
+     *
+     * @type Item
+     * @param valor
+     * @return
+     */
     public Double calcularGamma (Double valor) {
 
         Double gamma = 1.0;
@@ -191,6 +195,15 @@ public class Estadistica implements Operacion, Media {
         return gamma;
     }
 
+    /**
+     * Calcula la Distribución T
+     *
+     * @type Item
+     * @param Wi
+     * @param dof
+     * @param gDof
+     * @return
+     */
     public Double calcularDistribucionT (Double Wi, Integer dof, Double gDof) {
 
         Double rDT = gDof * (Math.pow( 1 + (Math.pow( Wi.doubleValue(), 2 ) / dof), -((dof + 1)/2)));
@@ -198,6 +211,14 @@ public class Estadistica implements Operacion, Media {
         return rDT;
     }
 
+    /**
+     * Obtiene el multiplicador
+     *
+     * @type Item
+     * @param indice
+     * @param num_seg
+     * @return
+     */
     public Integer obtenerMultiplicador (int indice, int num_seg) {
 
         Integer m = 0;
