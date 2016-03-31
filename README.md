@@ -5,6 +5,7 @@ La aplicación cuenta con un menú básico de navegación para acceder a las dif
 * Calcular promedio
 * [Calcular regresión lineal y correlación] (https://peaceful-bastion-44007.herokuapp.com/regresion-correlacion)
 * [Calcular tamaño relativo] (https://peaceful-bastion-44007.herokuapp.com/tamano-relativo)
+* [Calcular regla de simpson] (https://peaceful-bastion-44007.herokuapp.com/regla-simpson)
 
 ## Instrucciones de implementación y uso
 
