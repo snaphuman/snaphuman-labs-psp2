@@ -128,18 +128,13 @@ public class PROBE {
         // TODO: verificar que num_seg sea un número par
 
         // Calcular primera parte de la ecuación gDof
+        // should be method
         gDof = (gamaDof.calcularGamma(((double) dof + 1)/2)) /
                 (Math.pow((dof * Math.PI), 0.5) *
                 gamaDof.calcularGamma((double) dof /2));
 
-        System.out.println("num: " + gamaDof.calcularGamma(((double) dof + 1) / 2));
-        System.out.println("den: " + gamaDof.calcularGamma(((double) dof ) / 2));
-        System.out.println("Gamma " + gDof);
-
-
         // Iteración hasta que validarError = true,
         // de lo contrario num_seg = num_seg*2
-
         do {
             Double simpsonTotal = 0.0;
             W = x / num_seg;
@@ -152,8 +147,6 @@ public class PROBE {
                 simpsonItem = (W / 3) * m * Fx;
                 simpsonTotal += simpsonItem;
             }
-
-            System.out.println(resultados.toString());
 
             if (resultados.size() == 0) {
 
