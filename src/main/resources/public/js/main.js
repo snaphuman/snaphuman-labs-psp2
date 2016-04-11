@@ -30,6 +30,24 @@ $(document).ready(function () {
     inError.val(0.00001);
     });
 
+    $("#lab6 #test1").click(function () {
+        $('input#trialX').val(1.0);
+        $('input#p').val(0.20);
+        $('input#dof').val(6);
+    });
+
+    $("#lab6 #test2").click(function () {
+        $('input#trialX').val(1.0);
+        $('input#p').val(0.45);
+        $('input#dof').val(15);
+    });
+
+    $("#lab6 #test3").click(function () {
+        $('input#trialX').val(1.0);
+        $('input#p').val(0.495);
+        $('input#dof').val(4);
+    });
+
     $("#enviar").click(function () {
         var values = $("form#valores").serialize();
         console.log(values);

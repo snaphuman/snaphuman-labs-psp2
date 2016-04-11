@@ -48,15 +48,19 @@ public class Main {
         Map<String, List> resultadosTaller3 = new HashMap<>();
         Map<String, List> resultadosTaller4 = new HashMap<>();
         Map<String, String> taller5 = new HashMap<>();
+        Map<String, String> taller6 = new HashMap<>();
 
         map.put( "titulo", "Calculadora estadística" );
 
         resultadosTaller3.put( "Cx", Pares.resultadosCoeficientes );
         resultadosTaller3.put( "Px", Pares.resultadosParametros );
+
         resultadosTaller3.put( "pEst", proxyEstimado() );
         resultadosTaller4.put( "tRelativo", Lista.resultadoTest5);
 
         taller5.put("titulo", "Calcular Regla de Simpson");
+
+        taller6.put("titulo", "Encontrar valor de X");
 
         get( "/", ( req, res ) -> new ModelAndView( map, "index" ),
                 new JadeTemplateEngine());
@@ -91,6 +95,15 @@ public class Main {
             resultado = simpson.calcularSimpson(x, num_seg, error, dof);
 
             return resultado;
+        });
+
+        get("/encontrar-x", (req, res) ->
+                new ModelAndView( taller6, "encontrar-x"),
+                new JadeTemplateEngine());
+
+        post("/encontrar-x/buscar", (req, res) -> {
+
+           return "calculando";
         });
     }
 

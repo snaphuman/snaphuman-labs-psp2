@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    link(rel="stylesheet", type="text/css", href="/css/pure-min.css")
+    link(rel="stylesheet", type="text/css", href="/css/main.css")
+    script(src="/js/jquery.min.js")
+    script(src="/js/main.js")
+  body
+    h1 #{titulo}
+    form.pure-form.pure-form-aligned(method="post", action="/encontrar-x/buscar")
+      fieldset
+        .pure-control-group
+          label(for="p") p
+          input#p(type="text", name="p", placeholder="p")
+        .pure-control-group
+          label(for="dog") Degree of Freedom
+          input#dof(type="text", name="dof", placeholder="dof")
+        .pure-control-group
+          label(for="trialX") X de prueba
+          input#trialX(type="text", name="trialX", placeholder="trialX")
+        .pure-controls#lab6
+          button.pure-button.pure-button-primary(type="submit") Calcular
+          p
+            a#test1.pure-button(href="#") Test 1
+          p
+            a#test2.pure-button(href="#") Test 2
+          p
+            a#test3.pure-button(href="#") Test 3
