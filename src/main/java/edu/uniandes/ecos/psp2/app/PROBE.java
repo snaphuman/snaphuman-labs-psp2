@@ -171,7 +171,7 @@ public class PROBE {
         return Double.valueOf(df.format(resultados.get(resultados.size() -1 ).doubleValue()));
     }
 
-    /*
+    /**
      * Realiza la comparación entre los resultados de la regla de
      * simpson
      *

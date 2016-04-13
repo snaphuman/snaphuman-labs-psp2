@@ -11,6 +11,16 @@ import java.text.NumberFormat;
  */
 public class Aproximacion {
 
+    /**
+     * Calcula la integración para encontrar el valor de X
+     * dentro del error aceptable indicado
+     *
+     * @type Item
+     * @param trialX
+     * @param esperado
+     * @param dof
+     * @return
+     */
     public static Pair<Integer, Double> buscarX ( Double trialX, Double esperado, Integer dof ) {
         Double e = 0.00001;
         Integer num_seg = 10;
