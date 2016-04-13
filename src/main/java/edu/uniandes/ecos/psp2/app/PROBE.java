@@ -2,7 +2,9 @@ package edu.uniandes.ecos.psp2.app;
 
 import org.javatuples.Pair;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -123,6 +125,10 @@ public class PROBE {
         Double simpsonItem;
         List<Double> resultados = new ArrayList<>();
         Boolean esValido = false;
+        NumberFormat df = DecimalFormat.getInstance();
+        df.setMaximumFractionDigits(5);
+        df.setMinimumFractionDigits(5);
+        df.setRoundingMode(RoundingMode.FLOOR);
         int m;
 
         // TODO: verificar que num_seg sea un número par
@@ -162,10 +168,10 @@ public class PROBE {
 
         } while (esValido != true);
 
-        return resultados.get(resultados.size() -1 ).doubleValue();
+        return Double.valueOf(df.format(resultados.get(resultados.size() -1 ).doubleValue()));
     }
 
-    /**
+    /*
      * Realiza la comparación entre los resultados de la regla de
      * simpson
      *
