@@ -6,8 +6,6 @@ import java.util.List;
  * Interface para implementar los métodos
  * que permiten calcular operaciones estadísticas
  *
- * @type Part
- * @author snaphuman
  */
 public interface Operacion {
 

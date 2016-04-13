@@ -16,10 +16,10 @@ public class Aproximacion {
      * dentro del error aceptable indicado
      *
      * @type Item
-     * @param trialX
-     * @param esperado
-     * @param dof
-     * @return
+     * @param trialX Double Valor de x de prueba
+     * @param esperado Double valor esperado
+     * @param dof Integer Grado de libertad
+     * @return busqueda Pair Resulado de la aproximación con numeros de intentos
      */
     public static Pair<Integer, Double> buscarX ( Double trialX, Double esperado, Integer dof ) {
         Double e = 0.00001;

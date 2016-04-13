@@ -20,7 +20,6 @@ import static spark.Spark.staticFileLocation;
  *
  * @author Fabián Hernández
  * @version 3.0 01/27/16
- * @licence GNU/GPL v3
  */
 public class Main {
 
@@ -29,9 +28,8 @@ public class Main {
      * resulados de los cálculos en la web en
      * la ruta indicada
      *
-     * @type Item
-     * @param args
-     * @return No hay valor de retorno
+     * @type Items
+     * @param args String argumentos
      */
     public static void main( String[] args ) {
 
@@ -257,6 +255,7 @@ public class Main {
      * Created by snaphuman
      *
      * @type Item
+     * @return pEstimado List
      */
     public static List<Double> proxyEstimado () {
 

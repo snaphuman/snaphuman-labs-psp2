@@ -22,7 +22,6 @@ public class Estadistica implements Operacion, Media {
      * @type Item
      * @param lista Un objeto de tipo Pares  que contiene los
      *              pares de datos ordenados
-     * @return Este método no retorna
      */
     public void calcular( Pares lista ) {
 
@@ -167,8 +166,8 @@ public class Estadistica implements Operacion, Media {
      * es entero o no.
      *
      * @type Item
-     * @param valor
-     * @return
+     * @param valor Double valor para calcular la funcion gamma
+     * @return gamma Double con el resultado de la funcion gamma
      */
     public Double calcularGamma (Double valor) {
 
@@ -199,10 +198,10 @@ public class Estadistica implements Operacion, Media {
      * Calcula la Distribución T
      *
      * @type Item
-     * @param Wi
-     * @param dof
-     * @param gDof
-     * @return
+     * @param Wi Double valor de W
+     * @param dof Integer Grado de Libertad
+     * @param gDof Double Grado de libertad operado con gamma
+     * @return rDT Double Resultado Distribucion T
      */
     public Double calcularDistribucionT (Double Wi, Integer dof, Double gDof) {
 
@@ -215,9 +214,9 @@ public class Estadistica implements Operacion, Media {
      * Obtiene el multiplicador
      *
      * @type Item
-     * @param indice
-     * @param num_seg
-     * @return
+     * @param indice int indice de la iteración
+     * @param num_seg int num_seg numero de segmentos
+     * @return m Integer multiplicador de la integral
      */
     public Integer obtenerMultiplicador (int indice, int num_seg) {
 

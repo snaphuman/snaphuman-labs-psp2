@@ -107,11 +107,11 @@ public class PROBE {
      * Realiza lals operaciones para calcular la regla de simpson
      *
      * @type Item
-     * @param x
-     * @param num_seg
-     * @param e
-     * @param dof
-     * @return
+     * @param x Double x
+     * @param num_seg Integer numero de segmentos
+     * @param e Double error aceptable
+     * @param dof Integer Grado de libertad
+     * @return resultado
      */
     public Double calcularSimpson (Double x, Integer num_seg, Double e, Integer dof) {
         System.out.println("Calculando Simpson");
