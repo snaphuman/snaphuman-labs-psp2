@@ -73,11 +73,11 @@ public class Main {
                 new ModelAndView( resultadosTaller4, "tamano-relativo"),
                 new JadeTemplateEngine());
 
-        get("/regla-simpson", (req, res) ->
-                new ModelAndView( taller5, "regla-simpson"),
+        get( "/regla-simpson", ( req, res ) ->
+                new ModelAndView( taller5, "regla-simpson" ),
                 new JadeTemplateEngine());
 
-        post("regla-simpson/calcular", (req, res) -> {
+        post( "regla-simpson/calcular", ( req, res ) -> {
 
             PROBE simpson = new PROBE();
             Integer num_seg = null;
@@ -87,36 +87,36 @@ public class Main {
             Double resultado;
 
             // TODO: Validar tipos de datos en valores de usuario
-            num_seg = Integer.parseInt(req.queryParams("num_seg"));
-            dof = Integer.parseInt(req.queryParams("dof"));
-            x = Double.parseDouble(req.queryParams("x"));
-            error = Double.parseDouble(req.queryParams("error"));
+            num_seg = Integer.parseInt( req.queryParams( "num_seg" ) );
+            dof = Integer.parseInt( req.queryParams( "dof" ) );
+            x = Double.parseDouble( req.queryParams( "x" ) );
+            error = Double.parseDouble( req.queryParams("error") );
 
-            resultado = simpson.calcularSimpson(x, num_seg, error, dof);
+            resultado = simpson.calcularSimpson( x, num_seg, error, dof );
 
             return resultado;
         });
 
-        get("/encontrar-x", (req, res) ->
-                new ModelAndView( taller6, "encontrar-x"),
+        get( "/encontrar-x", ( req, res ) ->
+                new ModelAndView( taller6, "encontrar-x" ),
                 new JadeTemplateEngine());
 
-        post("/encontrar-x/buscar", (req, res) -> {
+        post( "/encontrar-x/buscar", ( req, res ) -> {
             Aproximacion buscar = new Aproximacion();
             Double trialX = 0.0;
             Double p = 0.0;
             Integer dof = 0;
             Pair<Integer, Double> resultado;
 
-            trialX = Double.parseDouble(req.queryParams("trialX"));
-            p = Double.parseDouble(req.queryParams("p"));
-            dof = Integer.parseInt(req.queryParams("dof"));
+            trialX = Double.parseDouble( req.queryParams( "trialX" ) );
+            p = Double.parseDouble( req.queryParams( "p" ) );
+            dof = Integer.parseInt( req.queryParams( "dof" ) );
 
-            resultado = buscar.buscarX(trialX, p, dof);
+            resultado = buscar.buscarX( trialX, p, dof );
 
             Double r = resultado.getValue1();
             Integer c = resultado.getValue0();
-            System.out.println(c);
+            System.out.println( c );
             return r;
         });
     }
