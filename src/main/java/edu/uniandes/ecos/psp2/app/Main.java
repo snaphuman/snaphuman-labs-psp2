@@ -102,8 +102,22 @@ public class Main {
                 new JadeTemplateEngine());
 
         post("/encontrar-x/buscar", (req, res) -> {
+            Aproximacion buscar = new Aproximacion();
+            Double trialX = 0.0;
+            Double p = 0.0;
+            Integer dof = 0;
+            Pair<Integer, Double> resultado;
 
-           return "calculando";
+            trialX = Double.parseDouble(req.queryParams("trialX"));
+            p = Double.parseDouble(req.queryParams("p"));
+            dof = Integer.parseInt(req.queryParams("dof"));
+
+            resultado = buscar.buscarX(trialX, p, dof);
+
+            Double r = resultado.getValue1();
+            Integer c = resultado.getValue0();
+            System.out.println(c);
+            return r;
         });
     }
 

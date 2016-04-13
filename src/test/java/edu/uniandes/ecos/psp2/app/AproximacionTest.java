@@ -16,11 +16,11 @@ public class AproximacionTest {
     @Test
     public void buscarX () {
         Double e = 0.00001;
-        Integer dof = 4;
+        Integer dof = 15;
         Integer num_seg = 10;
         Double resultado;
         Double trialX = 1.0;
-        Double esperado = 0.495;
+        Double esperado = 0.45;
         NumberFormat df = DecimalFormat.getInstance();
         df.setMaximumFractionDigits(5);
         df.setMinimumFractionDigits(5);
@@ -33,7 +33,6 @@ public class AproximacionTest {
 
             resultado = new PROBE().calcularSimpson(trialX,num_seg,e,dof);
             Double res = Double.valueOf(df.format(resultado));
-            System.out.println(res);
 
             if ((res - esperado) == 0) {
 

@@ -2,34 +2,47 @@ package edu.uniandes.ecos.psp2.app;
 
 import org.javatuples.Pair;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 /**
  * Created by snaphuman on 4/10/16.
  */
 public class Aproximacion {
 
-    public static Pair<Integer, Double> buscarX (Double trialX, Double esperado) {
+    public static Pair<Integer, Double> buscarX (Double trialX, Double esperado, Integer dof) {
         Double e = 0.00001;
-        Integer dof = 9;
         Integer num_seg = 10;
         Double resultado;
+        NumberFormat df = DecimalFormat.getInstance();
+        df.setMaximumFractionDigits(5);
+        df.setMinimumFractionDigits(5);
+        df.setRoundingMode(RoundingMode.UP);
 
         boolean esValido = false;
         double d = 0.5;
         int count = 0;
         do {
             resultado = new PROBE().calcularSimpson(trialX,num_seg,e,dof);
-            if (resultado > esperado ) {
+            Double res = Double.valueOf(df.format(resultado));
+
+            if ((res - esperado) == 0) {
+
+                esValido = true;
+            }
+            if (res > esperado ) {
 
                 trialX -= d;
-                esValido = (Math.abs(esperado - resultado) < e) ? true : false;
+                esValido = (Math.abs(res - esperado) <= e) ? true : false;
                 if (count >= 1 && esValido == false) {
 
                     d = d/2;
                 }
-            } else if(resultado < esperado) {
+            } else if(res < esperado) {
 
                 trialX += d;
-                esValido = (Math.abs(esperado - resultado) < e) ? true : false;
+                esValido = (Math.abs(res - esperado) <= e) ? true : false;
                 if (count >= 1 && esValido == false) {
 
                     d = d/2;
@@ -39,7 +52,7 @@ public class Aproximacion {
             count++;
         } while (!esValido);
 
-        Pair<Integer, Double> busqueda = Pair.with(count, resultado);
+        Pair<Integer, Double> busqueda = Pair.with(count, Double.valueOf(df.format(trialX)));
 
         return busqueda;
     }
