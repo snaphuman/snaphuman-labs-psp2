@@ -6,6 +6,7 @@ La aplicación cuenta con un menú básico de navegación para acceder a las dif
 * [Calcular regresión lineal y correlación] (https://peaceful-bastion-44007.herokuapp.com/regresion-correlacion)
 * [Calcular tamaño relativo] (https://peaceful-bastion-44007.herokuapp.com/tamano-relativo)
 * [Calcular regla de simpson] (https://peaceful-bastion-44007.herokuapp.com/regla-simpson)
+* [Encontrar el valor de x] (https://peaceful-bastion-44007.herokuapp.com/encontrar-x)
 
 ## Instrucciones de implementación y uso
 
@@ -29,7 +30,7 @@ Ejecute la aplicación
 
 * Con maven
 
-> mvn exec:java -Dexec.mainClass=edu.uniandes.ecos.psp2.app.Calculadora
+> mvn exec:java -Dexec.mainClass=edu.uniandes.ecos.psp2.app.Main
 
 > Ingrese en el navegador web a la dirección localhost:4567 o 127.0.0.1:4567
 
