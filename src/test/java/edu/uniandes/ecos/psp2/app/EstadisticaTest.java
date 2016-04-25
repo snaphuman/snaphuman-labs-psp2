@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class EstadisticaTest {
 
-    private final static double precision = 0.05;
+    private final static double precision = 0.01;
 
     @Test
     public void calcularMediaPares() {
@@ -143,8 +143,11 @@ public class EstadisticaTest {
         Double test1 = simpson.calcularSimpson(1.1, 10, 0.00001, 9);
         Double test2 = simpson.calcularSimpson(1.1812, 10, 0.00001, 9);
         Double test3 = simpson.calcularSimpson(2.750, 30, 0.00001, 9);
+        System.out.println(test1);
         assertEquals(0.35006, test1, precision );
+        System.out.println(test2);
         assertEquals(0.36757, test2, precision );
+        System.out.println(test3);
         assertEquals(0.49500, test3, precision );
     }
 

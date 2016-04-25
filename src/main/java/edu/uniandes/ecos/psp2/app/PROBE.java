@@ -182,12 +182,20 @@ public class PROBE {
      */
     private Boolean validarError (List<Double> resultados, Double e) {
 
+        NumberFormat df = DecimalFormat.getInstance();
+        df.setMaximumFractionDigits(5);
+        df.setMinimumFractionDigits(5);
+        df.setRoundingMode(RoundingMode.UP);
         System.out.println("Validando");
         int ultimo = resultados.size() - 1;
         int penultimo = resultados.size() -2;
 
-        Boolean esValido = (resultados.get(penultimo).doubleValue() -
-                resultados.get(ultimo).doubleValue() < e) ? true : false;
+        Double valor1 = Double.valueOf(df.format(resultados.get(penultimo).doubleValue()));
+        Double valor2 = Double.valueOf(df.format(resultados.get(ultimo).doubleValue()));
+
+        System.out.println(valor1);
+        System.out.println(valor2);
+        Boolean esValido = valor1 - valor2 <= e ? true : false;
 
         System.out.println(esValido);
         return esValido;

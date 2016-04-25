@@ -16,48 +16,44 @@ public class AproximacionTest {
     @Test
     public void buscarX () {
         Double e = 0.00001;
-        Integer dof = 15;
+        Double errorActual = 0.0;
+        Integer dof = 4;
         Integer num_seg = 10;
-        Double resultado;
+        Double resultado = 0.0;
         Double trialX = 1.0;
-        Double esperado = 0.45;
+        Double esperado = 0.495;
+        int maxIter = 100;
         NumberFormat df = DecimalFormat.getInstance();
         df.setMaximumFractionDigits(5);
         df.setMinimumFractionDigits(5);
         df.setRoundingMode(RoundingMode.UP);
+        boolean nuevoNegativo = false;
+        boolean viejoNegativo = false;
 
         boolean esValido = false;
         double d = 0.5;
-        int count = 0;
-        do {
 
+        for (int count = 0; count <= maxIter; count ++) {
             resultado = new PROBE().calcularSimpson(trialX,num_seg,e,dof);
+            System.out.println(resultado);
             Double res = Double.valueOf(df.format(resultado));
 
-            if ((res - esperado) == 0) {
+            errorActual = esperado - resultado;
+            nuevoNegativo = errorActual < 0;
 
-                esValido = true;
-            }
-            if (res > esperado ) {
+            if(Math.abs(errorActual) > e) {
 
-                trialX -= d;
-                esValido = (Math.abs(res - esperado) <= e) ? true : false;
-                if (count >= 1 && esValido == false) {
-
-                    d = d/2;
+                if (nuevoNegativo != viejoNegativo) {
+                    d /= 2;
+                    d = -d;
                 }
-            } else if(res < esperado) {
-
-                trialX += d;
-                esValido = (Math.abs(res - esperado) <= e) ? true : false;
-                if (count >= 1 && esValido == false) {
-
-                    d = d/2;
-                }
+            } else {
+                break;
             }
+            viejoNegativo = nuevoNegativo;
 
-            count++;
-        } while (!esValido);
+            trialX += d;
+        }
 
         System.out.println("trialX: " + df.format(trialX));
         System.out.println("Esperado: " + df.format(esperado));
