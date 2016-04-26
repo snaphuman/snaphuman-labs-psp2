@@ -1,5 +1,6 @@
 package edu.uniandes.ecos.psp2.app;
 
+import org.apache.commons.math3.special.Gamma;
 import org.javatuples.Pair;
 
 import java.math.RoundingMode;
@@ -135,12 +136,17 @@ public class PROBE {
 
         // Calcular primera parte de la ecuación gDof
         // should be method
-        gDof = (gamaDof.calcularGamma(((double) dof + 1)/2)) /
-                (Math.pow((dof * Math.PI), 0.5) *
-                gamaDof.calcularGamma((double) dof /2));
+        //gDof = (gamaDof.calcularGamma(((double) dof + 1)/2)) /
+        //        (Math.pow((dof * Math.PI), 0.5) *
+        //        gamaDof.calcularGamma((double) dof /2));
+        double numerador = Gamma.gamma((dof+1.0)/2.0);
+        double denominador = Math.pow((dof*Math.PI), 0.5)*Gamma.gamma(dof/2.0);
+
+        gDof = numerador/denominador;
 
         // Iteración hasta que validarError = true,
         // de lo contrario num_seg = num_seg*2
+        System.out.println(gDof);
         do {
             Double simpsonTotal = 0.0;
             W = x / num_seg;

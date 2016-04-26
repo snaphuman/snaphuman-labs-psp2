@@ -170,6 +170,7 @@ public class Estadistica implements Operacion, Media {
      * @return gamma Double con el resultado de la funcion gamma
      */
     public Double calcularGamma (Double valor) {
+        System.out.println("calculando Gamma");
 
         Double gamma = 1.0;
 

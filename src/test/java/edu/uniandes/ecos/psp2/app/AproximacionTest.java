@@ -17,11 +17,11 @@ public class AproximacionTest {
     public void buscarX () {
         Double e = 0.00001;
         Double errorActual = 0.0;
-        Integer dof = 4;
+        Integer dof = 2;
         Integer num_seg = 10;
         Double resultado = 0.0;
         Double trialX = 1.0;
-        Double esperado = 0.495;
+        Double esperado = 0.35;
         int maxIter = 100;
         NumberFormat df = DecimalFormat.getInstance();
         df.setMaximumFractionDigits(5);
