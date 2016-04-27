@@ -21,6 +21,7 @@ public class EstadisticaTest {
         Pares lista = new Pares();
         Media operacion = new Estadistica();
 
+        lista.listaPares.clear();
         lista.listaPares.add( Pair.with( 1.0,1.0 ) );
         lista.listaPares.add( Pair.with( 1.0,1.0 ) );
 
@@ -149,6 +150,28 @@ public class EstadisticaTest {
         assertEquals(0.36757, test2, precision );
         System.out.println(test3);
         assertEquals(0.49500, test3, precision );
+    }
+
+    @Test
+    public void calcularSignificancia() {
+        Pares lista = new Pares();
+        lista.listaPares.add( Pair.with( 18.0, 3.0 ) );
+        lista.listaPares.add( Pair.with( 18.0, 3.0 ) );
+        lista.listaPares.add( Pair.with( 25.0, 3.0 ) );
+        lista.listaPares.add( Pair.with( 31.0, 3.0 ) );
+        lista.listaPares.add( Pair.with( 37.0, 3.0 ) );
+        lista.listaPares.add( Pair.with( 82.0, 5.0 ) );
+        lista.listaPares.add( Pair.with( 82.0, 4.0 ) );
+        lista.listaPares.add( Pair.with( 87.0, 4.0 ) );
+        lista.listaPares.add( Pair.with( 89.0, 4.0 ) );
+        lista.listaPares.add( Pair.with( 230.0, 10.0 ) );
+        lista.listaPares.add( Pair.with( 85.0, 3.0 ) );
+        lista.listaPares.add( Pair.with( 87.0, 3.0 ) );
+        lista.listaPares.add( Pair.with( 558.0, 10.0 ) );
+
+        Estadistica significancia = new Estadistica();
+
+        significancia.calcularSignificancia(lista);
     }
 
 }

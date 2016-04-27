@@ -2,6 +2,7 @@ package edu.uniandes.ecos.psp2.app;
 
 import org.javatuples.Pair;
 import org.javatuples.Triplet;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -239,5 +240,29 @@ public class Estadistica implements Operacion, Media {
         }
 
         return m;
+    }
+
+    public Double calcularSignificancia (Pares lista) {
+
+        int n = lista.listaPares.size();
+        System.out.println(n);
+        this.calcular(lista);
+
+        System.out.println(Pares.resultadosCoeficientes);
+        Double R1 = Pares.resultadosCoeficientes.get(0).getValue0();
+        Double R2 = Pares.resultadosCoeficientes.get(0).getValue1();
+
+        Double x = Math.abs(R1) * Math.sqrt(n -2) / Math.sqrt(1-R2);
+        System.out.println("x: " + x);
+        PROBE simpson = new PROBE();
+
+        Double p = simpson.calcularSimpson(x,10,0.00001,n-2);
+        System.out.println("p:" + p);
+
+        Double sigTail = 1-2*p;
+        Double remArea = 2*p;
+        System.out.println("SigTail: " + sigTail);
+        System.out.println("RemArea: " + remArea);
+        return remArea;
     }
 }
