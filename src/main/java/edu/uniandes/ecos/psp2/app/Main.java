@@ -47,6 +47,7 @@ public class Main {
         Map<String, List> resultadosTaller4 = new HashMap<>();
         Map<String, String> taller5 = new HashMap<>();
         Map<String, String> taller6 = new HashMap<>();
+        Map<String, String> taller7 = new HashMap<>();
 
         map.put( "titulo", "Calculadora estadística" );
 
@@ -59,6 +60,8 @@ public class Main {
         taller5.put("titulo", "Calcular Regla de Simpson");
 
         taller6.put("titulo", "Encontrar valor de X");
+
+        taller7.put("titulo", "Calcular proceso");
 
         get( "/", ( req, res ) -> new ModelAndView( map, "index" ),
                 new JadeTemplateEngine());
@@ -116,6 +119,31 @@ public class Main {
             Integer c = resultado.getValue0();
             System.out.println( c );
             return r;
+        });
+
+        get( "/historico-proceso", ( req, res ) ->
+                new ModelAndView( taller7, "historico-proceso"),
+                new JadeTemplateEngine());
+
+        post( "/historico-proceso/calcular", ( req, res ) -> {
+
+            Pares lista = new Pares();
+
+            String datos = req.queryParams("datos");
+            String[] items = datos.split(";");
+
+            for (String item : items) {
+                String[] value = item.split(",");
+                Double valor0 = Double.valueOf(value[0]).doubleValue();
+                Double valor1 = Double.valueOf(value[1]).doubleValue();
+                lista.listaPares.add(Pair.with(valor0, valor1));
+            }
+
+            Estadistica significancia = new Estadistica();
+
+            Double sig =  significancia.calcularSignificancia(lista);
+
+            return sig;
         });
     }
 
