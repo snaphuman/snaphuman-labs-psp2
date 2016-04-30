@@ -3,14 +3,15 @@ package edu.uniandes.ecos.psp2.app;
 import org.javatuples.Pair;
 import spark.ModelAndView;
 import spark.template.jade.JadeTemplateEngine;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import static spark.Spark.get;
-import static spark.Spark.post;
-import static spark.Spark.port;
-import static spark.Spark.staticFileLocation;
+
+import static edu.uniandes.ecos.psp2.app.JsonUtil.json;
+import static edu.uniandes.ecos.psp2.app.JsonUtil.toJson;
+import static spark.Spark.*;
 
 /**
  * Calculadora: Permite ejecutar varios métodos
@@ -127,6 +128,10 @@ public class Main {
 
         post( "/historico-proceso/calcular", ( req, res ) -> {
 
+            Estadistica significancia = new Estadistica();
+            Aproximacion rango = new Aproximacion();
+            Aproximacion prediccion = new Aproximacion();
+            Map<String, Double> respuesta = new HashMap<>();
             Pares lista = new Pares();
 
             String datos = req.queryParams("datos");
@@ -139,12 +144,28 @@ public class Main {
                 lista.listaPares.add(Pair.with(valor0, valor1));
             }
 
-            Estadistica significancia = new Estadistica();
-
             Double sig =  significancia.calcularSignificancia(lista);
+            Double Rxy = Pares.resultadosCoeficientes.get(0).getValue1();
+            Double R2 = Pares.resultadosCoeficientes.get(0).getValue0();
+            Double B0 = Pares.resultadosParametros.get(0).getValue0();
+            Double B1 = Pares.resultadosParametros.get(0).getValue1();
+            Double r = rango.intervaloPrediccion(lista);
+            Double yK = prediccion.prediccionMejorada(386);
 
-            return sig;
-        });
+            respuesta.put("significancia", sig);
+            respuesta.put("rxy", Rxy);
+            respuesta.put("R2", R2);
+            respuesta.put("B0", B0);
+            respuesta.put("B1", B1);
+            respuesta.put("rango", r);
+            respuesta.put("yk", yK);
+
+            res.type("application/json");
+            res.body(toJson(respuesta));
+
+            return res.body();
+        }, json());
+
     }
 
     /**
