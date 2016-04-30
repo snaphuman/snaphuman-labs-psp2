@@ -7,16 +7,20 @@ html
     script(src="/js/main.js")
   body
     h1 #{titulo}
-    form.pure-form.pure-form-aligned(method="post", action="/historico-proceso/calcular")
-      fieldset
-        .pure-control-group
-          label(for="datos") Datos
-          textarea#p(type="text", name="datos", placeholder="datos")
-        .pure-controls#historico
-          button.pure-button.pure-button-primary(type="submit") Calcular
-          p
-            a#test1.pure-button(href="#") Test 1
-          p
-            a#test2.pure-button(href="#") Test 2
-          p
-            a#test3.pure-button(href="#") Test 3
+    .pure-g
+      .pure-u-1-2
+        form#valores.pure-form.pure-form-aligned(action="/historico-proceso/calcular")
+          fieldset
+            .pure-control-group
+              label(for="datos") Datos
+              textarea#datos(name="datos", rows="10", cols="20", placeholder="datos")
+            .pure-controls#historico
+              button#enviar.pure-button.pure-button-primary Calcular
+              p
+                a#test1.pure-button(href="#") Test 1
+              p
+                a#test2.pure-button(href="#") Test 2
+              p
+                a#test3.pure-button(href="#") Test 3
+      .pure-u-1-2
+        #resultados

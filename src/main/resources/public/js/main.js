@@ -48,20 +48,26 @@ $(document).ready(function () {
         $('input#dof').val(4);
     });
 
-    $("#enviar").click(function () {
-        var values = $("form#valores").serialize();
-        console.log(values);
-        $.ajax({
-            url: "/regla-simpson/calcular",
-            type: "post",
-            data: values,
-            type: "text",
-            success: function(response) {
-                alert("responde");
-            }
-        }).done(function (msg) {
+    $("#enviar").click(function ( ev ) {
+        ev.preventDefault();
 
-                alert("mensaje");
+        var $form = $("form#valores"),
+            term = $("#datos").val(),
+            url = $form.attr("action");
+
+        $.post(url, {"datos": term}).done(function(data) {
+            var obj = $.parseJSON(data);
+            console.log(obj);
+            var res = $("#resultados");
+            res.append($("<div>").html($("<b>Rxy: </b>")).append(obj.rxy));
+            res.append($("<div>").html($("<b>R<sup>2</sup>: </b>")).append(obj.R2));
+            res.append($("<div>").html($("<b>Significancia: </b>")).append(obj.significancia));
+            res.append($("<div>").html($("<b>B<sub>0</sub>: </b>")).append(obj.B0));
+            res.append($("<div>").html($("<b>B<sub>1</sub>: </b>")).append(obj.B1));
+            res.append($("<div>").html($("<b>Y<sub>k</sub>: </b>")).append(obj.yk));
+            res.append($("<div>").html($("<b>Rango </b>")).append(obj.rango));
+            res.append($("<div>").html($("<b>UPI (70%)-: </b>")).append(obj.yk + obj.rango));
+            res.append($("<div>").html($("<b>LPI (70%): </b>")).append(obj.yk - obj.rango));
         })
     });
 })
