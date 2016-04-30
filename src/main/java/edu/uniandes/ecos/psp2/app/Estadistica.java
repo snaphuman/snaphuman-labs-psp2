@@ -259,10 +259,11 @@ public class Estadistica implements Operacion, Media {
         Double p = simpson.calcularSimpson(x,10,0.00001,n-2);
         System.out.println("p:" + p);
 
-        Double sigTail = 1-2*p;
+        Double sigTail = 1-(2*p);
         Double remArea = 2*p;
         System.out.println("SigTail: " + sigTail);
         System.out.println("RemArea: " + remArea);
+
         return remArea;
     }
 }
