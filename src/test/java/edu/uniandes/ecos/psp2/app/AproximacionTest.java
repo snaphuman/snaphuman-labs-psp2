@@ -1,5 +1,6 @@
 package edu.uniandes.ecos.psp2.app;
 
+import org.javatuples.Pair;
 import org.junit.Test;
 
 import java.math.RoundingMode;
@@ -60,5 +61,26 @@ public class AproximacionTest {
         System.out.println("Resultado: " + df.format(resultado));
         System.out.println("X: " + trialX);
         assertEquals(esperado, resultado, e);
+    }
+
+    @Test
+    public void intervaloPrediccion () {
+
+        Pares lista = new Pares();
+        lista.listaPares.add( Pair.with( 130.0, 186.0 ) );
+        lista.listaPares.add( Pair.with( 650.0, 699.0 ) );
+        lista.listaPares.add( Pair.with( 99.0, 132.0 ) );
+        lista.listaPares.add( Pair.with( 150.0, 272.0 ) );
+        lista.listaPares.add( Pair.with( 128.0, 291.0 ) );
+        lista.listaPares.add( Pair.with( 302.0, 331.0 ) );
+        lista.listaPares.add( Pair.with( 95.0, 199.0 ) );
+        lista.listaPares.add( Pair.with( 945.0, 1890.0 ) );
+        lista.listaPares.add( Pair.with( 368.0, 788.0 ) );
+        lista.listaPares.add( Pair.with( 961.0, 1601.0 ) );
+
+        Aproximacion prediccion = new Aproximacion();
+
+        prediccion.intervaloPrediccion(lista);
+
     }
 }

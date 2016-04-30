@@ -155,19 +155,16 @@ public class EstadisticaTest {
     @Test
     public void calcularSignificancia() {
         Pares lista = new Pares();
-        lista.listaPares.add( Pair.with( 18.0, 3.0 ) );
-        lista.listaPares.add( Pair.with( 18.0, 3.0 ) );
-        lista.listaPares.add( Pair.with( 25.0, 3.0 ) );
-        lista.listaPares.add( Pair.with( 31.0, 3.0 ) );
-        lista.listaPares.add( Pair.with( 37.0, 3.0 ) );
-        lista.listaPares.add( Pair.with( 82.0, 5.0 ) );
-        lista.listaPares.add( Pair.with( 82.0, 4.0 ) );
-        lista.listaPares.add( Pair.with( 87.0, 4.0 ) );
-        lista.listaPares.add( Pair.with( 89.0, 4.0 ) );
-        lista.listaPares.add( Pair.with( 230.0, 10.0 ) );
-        lista.listaPares.add( Pair.with( 85.0, 3.0 ) );
-        lista.listaPares.add( Pair.with( 87.0, 3.0 ) );
-        lista.listaPares.add( Pair.with( 558.0, 10.0 ) );
+        lista.listaPares.add( Pair.with( 130.0, 186.0 ) );
+        lista.listaPares.add( Pair.with( 650.0, 699.0 ) );
+        lista.listaPares.add( Pair.with( 99.0, 132.0 ) );
+        lista.listaPares.add( Pair.with( 150.0, 272.0 ) );
+        lista.listaPares.add( Pair.with( 128.0, 291.0 ) );
+        lista.listaPares.add( Pair.with( 302.0, 331.0 ) );
+        lista.listaPares.add( Pair.with( 95.0, 199.0 ) );
+        lista.listaPares.add( Pair.with( 945.0, 1890.0 ) );
+        lista.listaPares.add( Pair.with( 368.0, 788.0 ) );
+        lista.listaPares.add( Pair.with( 961.0, 1601.0 ) );
 
         Estadistica significancia = new Estadistica();
 
