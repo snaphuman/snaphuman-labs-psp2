@@ -7,6 +7,7 @@ La aplicación cuenta con un menú básico de navegación para acceder a las dif
 * [Calcular tamaño relativo] (https://peaceful-bastion-44007.herokuapp.com/tamano-relativo)
 * [Calcular regla de simpson] (https://peaceful-bastion-44007.herokuapp.com/regla-simpson)
 * [Encontrar el valor de x] (https://peaceful-bastion-44007.herokuapp.com/encontrar-x)
+* [Calcular proceso historico] (https://peaceful-bastion-44007.herokuapp.com/historico-proceso)
 
 ## Instrucciones de implementación y uso
 
