@@ -151,8 +151,7 @@ public class PROBE {
             Double simpsonTotal = 0.0;
             W = x / num_seg;
 
-            int i;
-            for (i = 0; i <= num_seg; i++) {
+            for (int i = 0; i <= num_seg; i++) {
 
                 Fx = distribucionT.calcularDistribucionT(W * i, dof, gDof);
                 m = multiplicador.obtenerMultiplicador(i, num_seg);
@@ -191,7 +190,7 @@ public class PROBE {
         NumberFormat df = DecimalFormat.getInstance();
         df.setMaximumFractionDigits(5);
         df.setMinimumFractionDigits(5);
-        df.setRoundingMode(RoundingMode.UP);
+        df.setRoundingMode(RoundingMode.DOWN);
         System.out.println("Validando");
         int ultimo = resultados.size() - 1;
         int penultimo = resultados.size() -2;
@@ -201,6 +200,7 @@ public class PROBE {
 
         System.out.println(valor1);
         System.out.println(valor2);
+        System.out.println(valor1-valor2);
         Boolean esValido = valor1 - valor2 <= e ? true : false;
 
         System.out.println(esValido);

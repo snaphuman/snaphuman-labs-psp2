@@ -48,6 +48,38 @@ $(document).ready(function () {
         $('input#dof').val(4);
     });
 
+    $("#historico #test1").click(function () {
+
+        var datos = "130.0,186.0;"
+            datos += "650.0,699.0;"
+            datos += "99.0,132.0;"
+            datos += "150.0,272.0;"
+            datos += "128.0,291.0;"
+            datos += "302.0,331.0;"
+            datos += "95.0,199.0;"
+            datos += "945.0,1890.0;"
+            datos += "368.0,788.0;"
+            datos += "961.0,1601.0;"
+
+        $("#datos").val(datos);
+    });
+
+    $("#historico #test2").click(function () {
+
+        var datos = "130.0,15.0;"
+            datos += "650.0,69.9;"
+            datos += "99.0,6.5;"
+            datos += "150.0,22.4;"
+            datos += "128.0,28.4;"
+            datos += "302.0,65.9;"
+            datos += "95.0,19.4;"
+            datos += "945.0,198.7;"
+            datos += "368.0,38.8;"
+            datos += "961.0,138.2;"
+
+        $("#datos").val(datos);
+    });
+
     $("#enviar").click(function ( ev ) {
         ev.preventDefault();
 
@@ -68,6 +100,7 @@ $(document).ready(function () {
             res.append($("<div>").html($("<b>Rango </b>")).append(obj.rango));
             res.append($("<div>").html($("<b>UPI (70%)-: </b>")).append(obj.yk + obj.rango));
             res.append($("<div>").html($("<b>LPI (70%): </b>")).append(obj.yk - obj.rango));
+            res.append($("<hr>"));
         })
     });
 })

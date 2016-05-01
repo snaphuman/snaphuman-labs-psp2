@@ -69,6 +69,11 @@ public class Aproximacion {
         return busqueda;
     }
 
+    /**
+     *
+     * @param lista
+     * @return
+     */
     public Double intervaloPrediccion (Pares lista ) {
 
         Integer Xk = 386;
@@ -124,6 +129,11 @@ public class Aproximacion {
         return rango;
     }
 
+    /**
+     *
+     * @param Xk
+     * @return
+     */
     public Double prediccionMejorada (Integer Xk) {
         Double B0 = Pares.resultadosParametros.get(0).getValue0();
         Double B1 = Pares.resultadosParametros.get(0).getValue1();
